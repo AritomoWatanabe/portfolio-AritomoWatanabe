@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2020_07_07_151306) do
   end
 
   create_table "attendance_records", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "construction_site_id", null: false
     t.datetime "begin_at", null: false
     t.datetime "finish_at", null: false
     t.datetime "created_at", null: false
@@ -42,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_07_07_151306) do
   end
 
   create_table "daily_reports", force: :cascade do |t|
+    t.integer "construction_site_id", null: false
     t.datetime "date", null: false
     t.string "content", null: false
     t.string "etcetera"
@@ -60,6 +63,7 @@ ActiveRecord::Schema.define(version: 2020_07_07_151306) do
   end
 
   create_table "machines", force: :cascade do |t|
+    t.integer "construction_site_id", null: false
     t.string "name", null: false
     t.boolean "need_repair", default: false, null: false
     t.datetime "created_at", null: false
@@ -67,6 +71,8 @@ ActiveRecord::Schema.define(version: 2020_07_07_151306) do
   end
 
   create_table "photos", force: :cascade do |t|
+    t.integer "construction_site_id", null: false
+    t.string "image_id", null: false
     t.string "explanation", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -78,6 +84,13 @@ ActiveRecord::Schema.define(version: 2020_07_07_151306) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "family_name", null: false
+    t.string "first_name", null: false
+    t.string "family_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.string "address", null: false
+    t.string "telephone_number", null: false
+    t.boolean "is_withdrawal", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

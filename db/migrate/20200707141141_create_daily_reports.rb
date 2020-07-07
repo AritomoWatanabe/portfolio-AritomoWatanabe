@@ -2,6 +2,7 @@ class CreateDailyReports < ActiveRecord::Migration[5.2]
   def change
     create_table :daily_reports do |t|
 
+        t.integer :construction_site_id, null: false
     	t.datetime :date, null: false
     	t.string :content, null: false
     	t.string :etcetera
