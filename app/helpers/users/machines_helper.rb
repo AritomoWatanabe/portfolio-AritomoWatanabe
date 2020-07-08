@@ -1,0 +1,2 @@
+module Users::MachinesHelper
+end

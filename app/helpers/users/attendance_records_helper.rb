@@ -1,0 +1,2 @@
+module Users::AttendanceRecordsHelper
+end
