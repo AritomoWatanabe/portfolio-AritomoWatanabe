@@ -1,0 +1,45 @@
+<header class="navbar navbar-fixed-top", style="background-color: #99CCFF;">
+    <div class="container">
+
+      <nav class="nav navbar-nav navbar-left">
+        <span style="font-size: 35px;">
+          <% if admin_signed_in? %>
+            <%= link_to '現場管理',admins_root_path %></span>
+          <% else %>
+            現場管理
+          <% end %>
+      </nav>
+
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <!--if文でサインインとアウト時の表示を変更-->
+          <% if admin_signed_in? %>
+          <li><%= link_to "従業員一覧", admins_users_path, class: 'up'%></li>
+          <li><%= link_to "現場一覧", admins_construction_sites_path, class: 'up'%></li>
+          <li><%= link_to "出勤簿", admins_attendance_records_path, class: 'up'%></li>
+          <li><%= link_to "日報一覧", admins_daily_reports_path, class: 'up'%></li>
+          <li><%= link_to "ログアウト", destroy_admin_session_path, class: 'up', method: :delete %>
+          </li>
+
+
+          <% else %>
+
+
+          <li><%= link_to "ログイン", new_admin_session_path%></li>
+
+          <% end %>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+  <!--ヘッダーの記述-->
+
+
+  <footer class="navbar navbar-fixed-bottom", style="background-color: #99CCFF;">
+
+  </footer>
+
+</body>
+
+</html>
