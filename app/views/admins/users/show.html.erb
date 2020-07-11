@@ -1,0 +1,72 @@
+
+<%= render "shared/admin_header" %>
+
+<div class = "container">
+
+	<div class= "row">
+  		<div class="col-xs-8 col-xs-offset-2">
+
+    		<div>
+	 			<mark style="font-size: 20px;">
+	 				<%= @user.family_name %>
+        			<%= @user.first_name %>さんの情報詳細</mark>
+			</div>
+
+			<table border="0">
+      			<tr>
+        			<th>顧客ID</th>
+        			<td>
+          				<%= @user.id %>
+        			</td>
+      			</tr>
+
+      			<tr>
+        			<th>氏名</th>
+        			<td>
+          				<%= @user.family_name %>
+          				<%= @user.first_name %>
+        			</td>
+      			</tr>
+
+      			<tr>
+        			<th>フリガナ</th>
+        			<td>
+          				<%= @user.family_name_kana %>
+          				<%= @user.first_name_kana %>
+        			</td>
+      			</tr>
+
+     			 <tr>
+        			<th>住所</th>
+        			<td><%= @user.address %></td>
+      			</tr>
+
+      			<tr>
+        			<th>電話番号</th>
+        			<td><%= @user.telephone_number %></td>
+      			</tr>
+
+      			<tr>
+        			<th>メールアドレス</th>
+        			<td><%= @user.email %></td>
+     			</tr>
+
+     			<tr>
+     				<th>ステータス</th>
+     				<td><% if @user.is_withdrawal == false %>
+              				<span class="status">有効会員</span>
+            			<% else %>
+              				<span class="status">退会済会員</span>
+            			<% end %>
+            		</td>
+            	</tr>
+
+    		</table>
+
+    		<div>
+      			<%=link_to "編集する", edit_admins_user_path(@user.id),class: "btn btn-primary", style:"margin-right:30px" %>
+    		</div>
+
+    	</div>
+    </div>
+</div>

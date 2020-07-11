@@ -1,0 +1,51 @@
+
+<%= render "shared/admin_header" %>
+
+<div class = "container">
+
+	<div class= "row">
+  		<div class="col-xs-8 col-xs-offset-2">
+
+    		<div>
+	 			<mark style="font-size: 20px;">現場一覧</mark>
+	 				<%= link_to new_admins_construction_site_path do %>
+	 					<%= "+" %>
+	 				<% end %>
+			</div>
+
+		<table style="margin-top:15px">
+
+	    	<thead class = "thead-light">
+	    		<tr class="active">
+		    		<th style="width:15%">現場番号</th>
+		    		<th style="width:25%">現場名</th>
+		    		<th style="width:30%">現場住所</th>
+		    		<th style="width:15%">　</th>
+		    		<th style="width:15%">　</th>
+		  		</tr>
+	    	</thead>
+
+	  		<% @construction_sites.each do |construction_site| %>
+	    	<tbody>
+				<tr>
+		    		<td><%= construction_site.id %></td>
+					<td>
+						<%= link_to admins_construction_site_path(construction_site.id) do %>
+						<%= construction_site.name %>
+					<% end %></td>
+					<td><%= construction_site.address %></td>
+				</tr>
+			</tbody>
+			<% end %>
+		</table>
+
+
+		<div class="text-center"><%= paginate @construction_sites %></div>
+
+		</div>
+	</div>
+
+</div>
+
+
+

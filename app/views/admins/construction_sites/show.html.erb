@@ -1,0 +1,42 @@
+
+<%= render "shared/admin_header" %>
+
+<div class = "container">
+
+	<div class= "row">
+  		<div class="col-lg-4">
+
+    		<div>
+	 			<mark style="font-size: 20px;">現場詳細</mark>
+			</div>
+
+	<table class="table">
+      <tbody>
+        <tr>
+         <th>現場名</th>
+         <td><%= @construction_site.name %></td>
+       </tr>
+
+       <tr>
+         <td>現場住所</td>
+         <td><%= @construction_site.address %></td>
+       </tr>
+
+       <tr>
+         <td>元請け業者</td>
+         <td><%= @construction_site.prime_contractor %></td>
+       </tr>
+
+       <tr>
+         <td>工期（予定）</td>
+         <td><%= @construction_site.period %> 〜 <%= @construction_site.period_end %></td>
+       </tr>
+
+       <tr>
+         <td>その他</td>
+         <td><%= @construction_site.caution %></td>
+      </tr>
+    </tbody>
+  </table>
+  <%= link_to "編集する",edit_admins_construction_site_path, class: 'btn btn-info btn-lg col-lg-offset-12' %>
+</div>
