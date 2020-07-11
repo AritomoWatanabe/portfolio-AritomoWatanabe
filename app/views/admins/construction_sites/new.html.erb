@@ -1,0 +1,61 @@
+<%= render "shared/admin_header" %>
+
+
+<div class = "container">
+
+  <div class = "row">
+      <h2>現場 新規登録</h2>
+  </div>
+
+  <%= form_for @construction_site, url: admins_construction_sites_path(current_admin.id) do |f| %>
+
+  <table class="table" id="none-border">
+
+    <tbody>
+
+      <tr>
+        <td><%= f.label :現場名 %>
+          <%= f.text_field :name %>
+        </td>
+      </tr>
+
+      <tr>
+        <td><%= f.label :現場住所 %>
+          <%= f.text_field :address %>
+        </td>
+      </tr>
+
+       <tr>
+        <td><%= f.label :元請け業者 %></td>
+        <td><%= f.text_field :prime_contractor %></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td><%= f.label :工期 %></td>
+        <td><%= raw sprintf(f.date_select(:period, start_year: Time.now.year,end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %></td>
+        <td><%= raw sprintf(f.date_select(:period_end, start_year: Time.now.year,end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td><%= f.label :その他 %></td>
+        <td><%= f.text_field :caution %></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+
+      <tr>
+        <td> <%= f.submit "新規登録", class: "btn btn-success btn-lg col-lg-offset-12" %></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <% end %>
+
+</div>

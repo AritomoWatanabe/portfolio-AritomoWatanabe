@@ -1,0 +1,126 @@
+
+<%= render "shared/user_header" %>
+
+<div class = "container">
+
+	<div class= "row">
+  		<div class="col-xs-8 col-xs-offset-2">
+
+  			<!-- 打刻 -->
+    	<div>
+	 		  <mark style="font-size: 20px;">打刻</mark>
+			</div>
+
+			<%= form_for @attendance_record, url: users_attendance_records_path do |f| %>
+
+          <div>
+            <%= f.label :construction_site, "現場名" %><br>
+            <%= f.collection_select(:construction_site_id, @construction_sites , :id, :name,:prompt => "選択してください") %>
+          </div>
+      		<div>
+      			<%= f.label :出勤 %>
+      			<%= f.datetime_select :begin_at, minute_step: 5 %>
+        		<%= "〜　退勤" %>
+        		<%= f.datetime_select :finish_at, minute_step: 5 %>
+      		</div>
+
+      		<%= f.submit "打刻", class: "btn btn-primary" %>
+
+      		<% end %>
+      		<!-- 打刻 -->
+
+
+      		<!-- 日報 -->
+			<div>
+	 			<mark style="font-size: 20px;">日報</mark>
+			</div>
+
+			<%= form_for @daily_report, url: users_daily_reports_path do |f| %>
+
+			<div>
+				<%= f.label :日付 %>
+        		<%= raw sprintf(f.date_select(:date	, start_year: Time.now.year, end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %>
+        	</div>
+
+        	<div>
+        		<%= f.label :construction_site, "現場名" %><br>
+        		<%= f.collection_select(:construction_site_id, @construction_sites , :id, :name,:prompt => "選択してください") %>
+        	</div>
+
+        	<div>
+        		<%= f.label :作業内容 %>
+          		<%= f.text_field :content %>
+          	</div>
+
+          	<div>
+        		<%= f.label :その他 %>
+          		<%= f.text_field :etcetera %>
+          	</div>
+
+          	<div>
+        		<%= f.label :自社作業員名 %>
+          		<%= f.text_field :company_people %>
+          	</div>
+
+          	<div>
+          		<%= f.label :手元工（人） %>
+          		<%= f.select :care_people, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
+          	</div>
+
+          	<div>
+          		<%= f.label :とび工（人） %>
+          		<%= f.select :scaffold_people, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
+          	</div>
+
+          	<div>
+          		<%= f.label :内装工（人） %>
+          		<%= f.select :interior_people, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
+          	</div>
+
+          	<div>
+          		<%= f.label :警備員（人） %>
+          		<%= f.select :watchman, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
+          	</div>
+
+          	<div>
+          		<%= f.label :ゴミ4t車（台） %>
+          		<%= f.select :garbage_collection_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
+          	</div>
+
+          	<div>
+          		<%= f.label :ゴミ大型車（台） %>
+          		<%= f.select :big_garbage_collection_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
+          	</div>
+
+          	<div>
+          		<%= f.label :ガラ8t車（台） %>
+          		<%= f.select :concrete_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
+          	</div>
+
+          	<div>
+          		<%= f.label :ガラ大型車（台） %>
+          		<%= f.select :big_concrete_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
+          	</div>
+
+          	<div>
+          		<%= f.label :埋め戻し残土大型車（台） %>
+          		<%= f.select :soil_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
+          	</div>
+
+
+
+
+			<%= f.submit "日報作成", class: "btn btn-primary" %>
+
+      		<% end %>
+
+			<!-- 日報 -->
+
+    </div>
+  </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,53 @@
+
+<%= render "shared/admin_header" %>
+
+<div class = "container">
+
+	<div class= "row">
+  		<div class="col-xs-8 col-xs-offset-2">
+
+    		<div>
+	 			<mark style="font-size: 20px;">従業員一覧</mark>
+	 				<%= link_to new_user_registration_path do %>
+	 					<%= "+" %>
+	 				<% end %>
+			</div>
+
+	<table style="margin-top:15px">
+
+	    <thead class = "thead-light">
+	      <tr class="active">
+		    <th style="width:15%">従業員ID</th>
+		    <th style="width:25%">氏名</th>
+		    <th style="width:30%">メールアドレス</th>
+		    <th style="width:30%">ステータス</th>
+		  </tr>
+	    </thead>
+
+	  <% @users.each do |user| %>
+	    <tbody>
+		  <tr>
+		    <td><%= user.id %></td>
+			<td>
+				<%= link_to admins_user_path(user.id) do %>
+					<%= "#{user.family_name}#{user.first_name}" %>
+				<% end %>
+			</td>
+			<td><%= user.email %></td>
+			<td>
+	          <% if user.is_withdrawal == false %>
+		        <p>有効</p>
+		      <% else %>
+		        <p>退会済</p>
+		      <% end %>
+			</td>
+		  </tr>
+		</tbody>
+	  <% end %>
+	</table>
+
+
+    <div class="text-center"><%= paginate @users %></div>
+
+  </div>
+</div>
