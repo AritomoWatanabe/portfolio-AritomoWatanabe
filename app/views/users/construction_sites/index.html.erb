@@ -1,5 +1,5 @@
 
-<%= render "shared/admin_header" %>
+<%= render "shared/user_header" %>
 
 <div class = "container">
 
@@ -8,9 +8,6 @@
 
     		<div>
 	 			<mark style="font-size: 20px;">現場一覧</mark>
-	 				<%= link_to new_admins_construction_site_path do %>
-	 					<%= "+" %>
-	 				<% end %>
 			</div>
 
 		<table style="margin-top:15px">
@@ -31,8 +28,8 @@
 		    		<td><%= construction_site.id %></td>
 					<td><%= construction_site.name %></td>
 					<td><%= construction_site.address %></td>
-					<td><%= link_to "現場詳細",admins_construction_site_path(construction_site.id), class: 'btn btn-primary' %></td>
-					<td><%= link_to "現場日報一覧",admins_daily_reports_path, class: 'btn btn-primary'%></td>
+					<td><%= link_to "現場詳細",users_construction_site_path(construction_site.id), class: 'btn btn-primary' %></td>
+					<td><%= link_to "現場日報一覧",users_daily_reports_path, class: 'btn btn-primary' %></td>
 				</tr>
 			</tbody>
 			<% end %>
@@ -45,6 +42,3 @@
 	</div>
 
 </div>
-
-
-

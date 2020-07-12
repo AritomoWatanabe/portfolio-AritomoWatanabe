@@ -12,7 +12,7 @@ class Users::DailyReportsController < ApplicationController
 
 	def show
 		@daily_report = DailyReport.find(params[:id])
-		@construction_site = ConstructionSite.find(params[:id])
+		# @construction_site = ConstructionSite.find(params[:id])
 	end
 
 	def edit
@@ -22,8 +22,7 @@ class Users::DailyReportsController < ApplicationController
 
 	def update
 		@daily_report = DailyReport.find(params[:id])
-		@construction_site = ConstructionSite.find(params[:id])
-		if @daily_report.update(daily_report_params) || @construction_site.update(daily_report_params)
+		if @daily_report.update(daily_report_params)
 			redirect_to users_daily_report_path(@daily_report.id)
 		else
 			render action: :edit
