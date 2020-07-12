@@ -1,0 +1,42 @@
+
+<%= render "shared/user_header" %>
+
+<div class = "container">
+
+	<div class= "row">
+  		<div class="col-lg-4">
+
+    		<div>
+	 			<mark style="font-size: 20px;">現場写真追加</mark>
+			</div>
+
+
+			<%= form_for @photo, url: users_photos_path do |f| %>
+
+			<div class="image-form">
+        		<div class="image-box">
+          			<%= f.label "画像の追加" %>
+       			 </div>
+        			<%= f.attachment_field :image_id, style:"margin-left:80px" %>
+      		</div>
+
+        	<<div class="field form-group">
+        		<%= f.label :explanation, "写真説明" %><br>
+        		<%= f.text_area :description, class: "form-control" %>
+        	</div>
+
+        	<div class="field form-group">
+        		<%= f.label :construction_site, "現場名" %><br>
+        		<%= f.collection_select(:construction_site_id, ConstructionSite.all, :id, :name,:prompt => "選択してください") %>
+      		</div>
+
+			<%= f.submit "写真を追加する", class: "btn btn-primary" %>
+
+      		<% end %>
+
+
+
+      	</div>
+    </div>
+
+</div>

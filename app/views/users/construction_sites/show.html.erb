@@ -1,0 +1,65 @@
+
+<%= render "shared/user_header" %>
+
+<div class = "container">
+
+	<div class= "row">
+
+  		<div class="col-lg-4">
+        <div>
+	 		    <mark style="font-size: 20px;">現場詳細</mark>
+        </div>
+
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>現場名</th>
+              <td><%= @construction_site.name %></td>
+            </tr>
+
+            <tr>
+              <td>現場住所</td>
+              <td><%= @construction_site.address %></td>
+            </tr>
+
+            <tr>
+              <td>元請け業者</td>
+              <td><%= @construction_site.prime_contractor %></td>
+            </tr>
+
+            <tr>
+              <td>工期（予定）</td>
+              <td><%= @construction_site.period %> 〜 <%= @construction_site.period_end %></td>
+            </tr>
+
+            <tr>
+              <td>その他</td>
+              <td><%= @construction_site.caution %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-lg-4">
+        <div>
+          <mark style="font-size: 20px;">現場写真</mark>
+        </div>
+        <div><%= link_to "写真を追加する",new_users_photo_path, class: 'btn btn-primary' %></div>
+
+        <% @photos.each do |photo| %>
+        <%= attachment_image_tag photo, :image, :fill, 100, 50 %>
+          <% end %>
+      </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
