@@ -1,20 +1,23 @@
 class Users::PhotosController < ApplicationController
 
 	def new
-		@photo = Photo.new(photo_params)
+		@photo = Photo.new
 	end
 
 	def create
 		@photo = Photo.new(photo_params)
-		@photo.save
-			redirect_to users_construction_site_path(@construction_site.id)
+		if @photo.save
+			redirect_to users_construction_sites_path
+		else
+			render :new
+		end
 	end
 
 	private
   		def photo_params
-    		params.permit(
+    		params.require(:photo).permit(
     			:construction_site_id,
-    			:image_id,
+    			:image,
     			:explanation)
   		end
 

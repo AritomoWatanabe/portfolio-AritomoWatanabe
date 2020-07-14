@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   	resources :photos, only:[:index]
   	resources :attendance_records, only:[:index]
   	resources :daily_reports, only:[:index, :show]
-  	resources :machines, only:[:index, :new]
+  	resources :machines, only:[:index, :create, :update]
   	root 'homes#top'
   end
 

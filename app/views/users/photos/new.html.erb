@@ -17,12 +17,12 @@
         		<div class="image-box">
           			<%= f.label "画像の追加" %>
        			 </div>
-        			<%= f.attachment_field :image_id, style:"margin-left:80px" %>
+        			<%= f.attachment_field :image, style:"margin-left:80px" %>
       		</div>
 
-        	<<div class="field form-group">
+        	<div class="field form-group">
         		<%= f.label :explanation, "写真説明" %><br>
-        		<%= f.text_area :description, class: "form-control" %>
+        		<%= f.text_area :explanation, class: "form-control" %>
         	</div>
 
         	<div class="field form-group">
@@ -30,7 +30,7 @@
         		<%= f.collection_select(:construction_site_id, ConstructionSite.all, :id, :name,:prompt => "選択してください") %>
       		</div>
 
-			<%= f.submit "写真を追加する", class: "btn btn-primary" %>
+          <%= f.submit "写真を追加する", class: "btn btn-primary" %>
 
       		<% end %>
 

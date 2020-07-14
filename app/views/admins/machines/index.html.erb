@@ -1,0 +1,84 @@
+
+<%= render "shared/admin_header" %>
+
+<div class = "container">
+
+	<div class= "row">
+  		<div class="col-xs-8 col-xs-offset-2">
+
+  			<div>
+	 			<mark style="font-size: 20px;">機械・機材追加</mark>
+			</div>
+
+			<%= form_for @machine, url: admins_machines_path do |f| %>
+
+			<div class="field form-group">
+        		<%= f.label :name, "機械・機材名" %>
+        		<%= f.text_field :name, class: "form-control" %>
+      		</div>
+
+      		<div class="field form-group">
+        		<%= f.label :construction_site, "現場名" %><br>
+        		<%= f.collection_select(:construction_site_id, ConstructionSite.all, :id, :name,:prompt => "選択してください") %>
+      		</div>
+
+      		<div>
+      			<%= f.submit "新規登録", class: "btn btn-primary" %>
+      		</div>
+
+      		<% end %>
+
+  		</div>
+  	</div>
+
+	<div class= "row">
+  		<div class="col-xs-8 col-xs-offset-2">
+
+    		<div>
+	 			<mark style="font-size: 20px;">機械・機材一覧</mark>
+			</div>
+
+		<table style="margin-top:15px">
+
+	    	<thead class = "thead-light">
+	    		<tr class="active">
+		    		<th style="width:20%">機械・機材名</th>
+		    		<th style="width:20%">現在地</th>
+		    		<th style="width:10%">状態</th>
+		    		<th style="width:20%">移動先選択</th>
+		    		<th style="width:20%">状態選択</th>
+		    		<th style="width:10%">　</th>
+		  		</tr>
+	    	</thead>
+
+	  		<% @machines.each do |machine| %>
+	    	<tbody>
+				<tr>
+		    		<td><%= machine.name %></td>
+					<td><%= machine.construction_site.name %></td>
+					<td><% if machine.need_repair == false %>
+						可動可
+						<% else %>
+						要修理
+						<% end %>
+					</td>
+
+					<%= form_for @machine, url: admins_machine_path(id: machine.id) do |f| %>
+					<td><%= f.collection_select(:construction_site_id, ConstructionSite.all, :id, :name) %></td>
+					<td>
+						<%= f.select :need_repair, {可動可: 1, 要修理: 0}, class: "form-control" %>
+					</td>
+					<td><%= f.submit '更新',class: 'btn btn-primary' %></td>
+					<% end %>
+				</tr>
+			</tbody>
+			<% end %>
+		</table>
+
+
+		<div class="text-center"><%= paginate @machines %></div>
+
+		</div>
+	</div>
+
+</div>
