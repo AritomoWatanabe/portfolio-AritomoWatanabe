@@ -1,4 +1,24 @@
 
 <%= render "shared/admin_header" %>
 
-<h1>テスト</h1>
+<div class = "container">
+
+	<div class= "row">
+
+		<div class="col-lg-4">
+
+        	<div>
+          		<mark style="font-size: 20px;">現場写真</mark>
+        	</div>
+
+			<% @photos.each do |photo| %>
+
+				<%= attachment_image_tag photo, :image, :fill, 100, 50 %>
+
+    		<% end %>
+
+    	</div>
+
+    </div>
+
+</div>

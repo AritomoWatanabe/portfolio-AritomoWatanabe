@@ -47,8 +47,12 @@
         <div><%= link_to "写真を追加する",new_users_photo_path, class: 'btn btn-primary' %></div>
 
         <% @photos.each do |photo| %>
-        <%= attachment_image_tag photo, :image, :fill, 100, 50 %>
+
+          <% if photo.construction_site.id == @construction_site.id %>
+            <%= attachment_image_tag photo, :image, :fill, 100, 50 %>
           <% end %>
+
+        <% end %>
       </div>
 
   </div>
