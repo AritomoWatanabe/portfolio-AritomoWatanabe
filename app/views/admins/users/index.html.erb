@@ -20,7 +20,8 @@
 		    <th style="width:15%">従業員ID</th>
 		    <th style="width:25%">氏名</th>
 		    <th style="width:30%">メールアドレス</th>
-		    <th style="width:30%">ステータス</th>
+		    <th style="width:15%">ステータス</th>
+		    <th style="width:15%"></th>
 		  </tr>
 	    </thead>
 
@@ -41,6 +42,7 @@
 		        <p>退会済</p>
 		      <% end %>
 			</td>
+			<td><%= link_to "出勤簿",admins_attendance_record_path(user.id), class: 'btn btn-primary' %></td>
 		  </tr>
 		</tbody>
 	  <% end %>

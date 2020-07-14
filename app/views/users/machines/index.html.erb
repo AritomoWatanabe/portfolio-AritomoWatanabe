@@ -16,9 +16,10 @@
 	    		<tr class="active">
 		    		<th style="width:20%">機械・機材名</th>
 		    		<th style="width:20%">現在地</th>
+		    		<th style="width:10%">状態</th>
 		    		<th style="width:20%">移動先選択</th>
-		    		<th style="width:20%">状態</th>
-		    		<th style="width:20%">　</th>
+		    		<th style="width:20%">状態選択</th>
+		    		<th style="width:10%">　</th>
 		  		</tr>
 	    	</thead>
 
@@ -26,10 +27,20 @@
 	    	<tbody>
 				<tr>
 		    		<td><%= machine.name %></td>
-					<td><%= machine.construction_site.address %></td>
-					<td><%= f.collection_select(:construction_site_id, ConstructionSite.all, :id, :name,:prompt => "選択してください") %></td>
-					<td><%= form.check_box :need_repair, {}, "要修理", "可動可" %></td>
-					<td><%= link_to "更新",users_machine_path, class: 'btn btn-primary'%></td>
+					<td><%= machine.construction_site.name %></td>
+					<td><% if machine.need_repair == false %>
+						可動可
+						<% else %>
+						要修理
+						<% end %>
+					</td>
+					<td><%= form_for machine, url: users_machine_path(machine) do |f| %>
+						<%= f.collection_select(:construction_site_id, ConstructionSite.all, :id, :name) %></td>
+					<td>
+						<%= f.select :need_repair, {可動可: 0, 要修理: 1}, class: "form-control" %>
+					</td>
+					<td><%= f.submit '更新',class: 'btn btn-primary' %><% end %></td>
+
 				</tr>
 			</tbody>
 			<% end %>

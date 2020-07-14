@@ -29,7 +29,7 @@
 					<td><%= construction_site.name %></td>
 					<td><%= construction_site.address %></td>
 					<td><%= link_to "現場詳細",users_construction_site_path(construction_site.id), class: 'btn btn-primary' %></td>
-					<td><%= link_to "現場日報一覧",users_daily_reports_path, class: 'btn btn-primary' %></td>
+					<td><%= link_to "日報",users_daily_reports_path, class: 'btn btn-primary' %></td>
 				</tr>
 			</tbody>
 			<% end %>

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   	resources :users, only:[:index, :show, :edit, :update]
   	resources :construction_sites, only:[:index, :new, :create, :show, :edit, :update]
   	resources :photos, only:[:index]
-  	resources :attendance_records, only:[:index]
+  	resources :attendance_records, only:[:index, :show]
   	resources :daily_reports, only:[:index, :show]
   	resources :machines, only:[:index, :create, :update]
   	root 'homes#top'

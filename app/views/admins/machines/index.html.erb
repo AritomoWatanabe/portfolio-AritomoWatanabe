@@ -63,13 +63,14 @@
 						<% end %>
 					</td>
 
-					<%= form_for @machine, url: admins_machine_path(id: machine.id) do |f| %>
-					<td><%= f.collection_select(:construction_site_id, ConstructionSite.all, :id, :name) %></td>
 					<td>
-						<%= f.select :need_repair, {可動可: 1, 要修理: 0}, class: "form-control" %>
+						<%= form_for machine, url: admins_machine_path(machine) do |f| %>
+						<%= f.collection_select(:construction_site_id, ConstructionSite.all, :id, :name) %></td>
+					<td>
+						<%= f.select :need_repair, {可動可: 0, 要修理: 1}, class: "form-control" %>
 					</td>
-					<td><%= f.submit '更新',class: 'btn btn-primary' %></td>
-					<% end %>
+					<td><%= f.submit '更新',class: 'btn btn-primary' %><% end %></td>
+
 				</tr>
 			</tbody>
 			<% end %>
