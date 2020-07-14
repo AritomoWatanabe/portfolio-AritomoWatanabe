@@ -19,7 +19,7 @@ class Admins::MachinesController < ApplicationController
     	if @machine.update(machine_params)
       		redirect_to admins_machines_path
     	else
-      		render action: :index
+      		redirect_to admins_root_path
     	end
 	end
 

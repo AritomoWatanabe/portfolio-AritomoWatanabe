@@ -7,9 +7,9 @@ class Users::MachinesController < ApplicationController
 	def update
 		@machine = Machine.find(params[:id])
     	if @machine.update(machine_params)
-      		redirect_to users_machines_path
+      		redirect_to	users_machines_path
     	else
-      		render action: :index
+      		redirect_to users_root_path
     	end
 	end
 
