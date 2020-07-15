@@ -1,11 +1,12 @@
 
-<%= render "shared/admin_header" %>
+
+<%= render "shared/user_header" %>
 
 <div class = "container">
 
 	<div class = "row">
 
-		<div><%= @user.family_name %><%= @user.first_name %>さんの出勤簿</div>
+		<div><%= current_user.family_name %><%= current_user.first_name %>さんの出勤簿</div>
 
 	</div>
 
@@ -18,7 +19,7 @@
 
 			<% attendance_records.each do |attendance_record| %>
 				<div>
-					<%= link_to admins_attendance_record_path(attendance_record.id) do %>
+					<%= link_to users_attendance_record_path(attendance_record.id) do %>
 					<%= attendance_record.start_time.strftime("%H:%M") %>〜<%= attendance_record.finish_at.strftime("%H:%M") %><br><%= attendance_record.construction_site.name %>
 					<% end %>
 				</div>

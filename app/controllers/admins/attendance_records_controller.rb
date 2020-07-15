@@ -1,5 +1,9 @@
 class Admins::AttendanceRecordsController < ApplicationController
 
+	def calendar
+		@user = User.find(params[:id])
+		@attendance_records = AttendanceRecord.where(user_id: params[:id])
+	end
 
 	def show
 		@attendance_record = AttendanceRecord.find(params[:id])
@@ -7,8 +11,11 @@ class Admins::AttendanceRecordsController < ApplicationController
 
 
 	private
-  		def user_params
-    	params.require(:user).permit(:family_name,:first_name,:family_name_kana,:first_name_kana,:email,:address,:telephone_number,:is_withdrawal)
-		end
-
+  		def attendance_record_params
+    		params.require(:attendance_record).permit(
+    			:user_id,
+   				:construction_site_id,
+   				:start_time,
+   				:finish_at)
+  		end
 end

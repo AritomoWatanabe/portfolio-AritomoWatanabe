@@ -19,12 +19,13 @@
           </div>
       		<div>
       			<%= f.label :出勤 %>
-      			<%= f.datetime_select :begin_at, minute_step: 15 %>
+      			<%= f.datetime_select :start_time, minute_step: 15 %>
         		<%= "〜　退勤" %>
         		<%= f.datetime_select :finish_at, minute_step: 15 %>
       		</div>
 
       		<%= f.submit "打刻", class: "btn btn-primary" %>
+          <%= link_to "出勤簿", calendar_users_attendance_record_path(current_user.id), class: "btn btn-primary" %>
 
       <% end %>
       <!-- 打刻 -->

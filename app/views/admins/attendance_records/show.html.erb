@@ -19,7 +19,7 @@
 
        <tr>
          <td>打刻時間</td>
-         <td><%= @attendance_record.begin_at.strftime("%Y-%m-%d %H:%M") %> 〜 <%= @attendance_record.finish_at.strftime("%Y-%m-%d %H:%M") %></td>
+         <td><%= @attendance_record.start_time.strftime("%Y-%m-%d %H:%M") %> 〜 <%= @attendance_record.finish_at.strftime("%Y-%m-%d %H:%M") %></td>
        </tr>
 
     </tbody>
