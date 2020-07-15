@@ -1,18 +1,18 @@
 class Users::DailyReportsController < ApplicationController
 
+	def calendar
+		@construction_site = ConstructionSite.find(params[:id])
+		@daily_reports = DailyReport.where(construction_site_id: params[:id])
+	end
+
 	def create
 		@daily_report = DailyReport.new(daily_report_params)
 		@daily_report.save
 			redirect_to users_daily_report_path(@daily_report.id)
 	end
 
-	def index
-		@daily_reports = DailyReport.all
-	end
-
 	def show
 		@daily_report = DailyReport.find(params[:id])
-		# @construction_site = ConstructionSite.find(params[:id])
 	end
 
 	def edit
@@ -45,9 +45,9 @@ class Users::DailyReportsController < ApplicationController
     			:big_garbage_collection_car,
     			:concrete_car,
     			:big_concrete_car,
-    			:soil_car,)
+    			:soil_car,
+    			:start_time)
   		end
-
 
 
 end
