@@ -1,0 +1,22 @@
+
+<%= render "shared/admin_header" %>
+
+<div class = "container">
+
+	<div class = "row">
+
+		<div><%= @user.family_name %><%= @user.first_name %>さんの出勤簿</div>
+
+	</div>
+
+
+	<div class= "row">
+
+
+		<%= month_calendar do |date| %>
+			<%= date.day %>
+		<% end %>
+
+	</div>
+
+</div>

@@ -6,6 +6,7 @@
 	<div class= "row">
 
   		<div class="col-lg-4">
+
         <div>
 	 		    <mark style="font-size: 20px;">現場詳細</mark>
         </div>
@@ -28,22 +29,25 @@
             </tr>
 
             <tr>
-              <td>工期（予定）</td>
-              <td><%= @construction_site.period %> 〜 <%= @construction_site.period_end %></td>
+              <td>工期</td>
+              <td><%= @construction_site.period.strftime("%Y-%m-%d")  %> 〜 <%= @construction_site.period_end.strftime("%Y-%m-%d") %>（予定）</td>
             </tr>
 
             <tr>
               <td>その他</td>
               <td><%= @construction_site.caution %></td>
             </tr>
-          </tbody>
+            </tbody>
         </table>
+
       </div>
 
       <div class="col-lg-4">
+
         <div>
           <mark style="font-size: 20px;">現場写真</mark>
         </div>
+
         <div><%= link_to "写真を追加する",new_users_photo_path, class: 'btn btn-primary' %></div>
 
         <% @photos.each do |photo| %>

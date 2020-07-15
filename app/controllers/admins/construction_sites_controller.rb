@@ -19,6 +19,7 @@ class Admins::ConstructionSitesController < ApplicationController
 
 	def show
 		@construction_site = ConstructionSite.find(params[:id])
+		@photos = Photo.all
 	end
 
 	def edit

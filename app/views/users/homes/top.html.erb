@@ -6,12 +6,12 @@
 	<div class= "row">
   		<div class="col-xs-8 col-xs-offset-2">
 
-  			<!-- 打刻 -->
+  		<!-- 打刻 -->
     	<div>
 	 		  <mark style="font-size: 20px;">打刻</mark>
 			</div>
 
-			<%= form_for @attendance_record, url: users_attendance_records_path do |f| %>
+			<%= form_for @attendance_record, url: users_attendance_records_path, method: :post do |f| %>
 
           <div>
             <%= f.label :construction_site, "現場名" %><br>
@@ -19,15 +19,15 @@
           </div>
       		<div>
       			<%= f.label :出勤 %>
-      			<%= f.datetime_select :begin_at, minute_step: 5 %>
+      			<%= f.datetime_select :begin_at, minute_step: 15 %>
         		<%= "〜　退勤" %>
-        		<%= f.datetime_select :finish_at, minute_step: 5 %>
+        		<%= f.datetime_select :finish_at, minute_step: 15 %>
       		</div>
 
       		<%= f.submit "打刻", class: "btn btn-primary" %>
 
-      		<% end %>
-      		<!-- 打刻 -->
+      <% end %>
+      <!-- 打刻 -->
 
 
       		<!-- 日報 -->
@@ -44,7 +44,7 @@
 
         	<div>
         		<%= f.label :construction_site, "現場名" %><br>
-        		<%= f.collection_select(:construction_site_id, @construction_sites , :id, :name,:prompt => "選択してください") %>
+        		<%= f.collection_select(:construction_site_id, ConstructionSite.all , :id, :name,:prompt => "選択してください") %>
         	</div>
 
         	<div>

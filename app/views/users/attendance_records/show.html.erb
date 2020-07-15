@@ -6,20 +6,20 @@
 	<div class= "row">
   		<div class="col-lg-4">
 
-    		<div>
-	 			<mark style="font-size: 20px;">打刻詳細</mark>
-			</div>
+        <div>
+          <mark style="font-size: 20px;">打刻詳細</mark>
+        </div>
 
 	<table class="table">
       <tbody>
         <tr>
          <th>現場名</th>
-         <td><%= @construction_site.name %></td>
+         <td><%= @attendance_record.construction_site.name %></td>
        </tr>
 
        <tr>
          <td>打刻時間</td>
-         <td><%= @attendance_record.begin_at %> 〜 <%= @attendance_record.finish_at %></td>
+         <td><%= @attendance_record.begin_at.strftime("%Y-%m-%d %H:%M") %> 〜 <%= @attendance_record.finish_at.strftime("%Y-%m-%d %H:%M") %></td>
        </tr>
 
     </tbody>
