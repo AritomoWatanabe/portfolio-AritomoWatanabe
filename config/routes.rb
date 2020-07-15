@@ -21,7 +21,11 @@ Rails.application.routes.draw do
   	resources :construction_sites, only:[:index, :new, :create, :show, :edit, :update]
   	resources :photos, only:[:index]
   	resources :attendance_records, only:[:index, :show]
-  	resources :daily_reports, only:[:index, :show]
+  	resources :daily_reports, only:[:show]do
+      member do
+        get :calendar, as: :calendar
+      end
+    end
   	resources :machines, only:[:index, :create, :update]
   	root 'homes#top'
   end
@@ -31,7 +35,11 @@ Rails.application.routes.draw do
 
   namespace :users do
   	resources :attendance_records, only:[:index, :create, :show, :edit, :update]
-  	resources :daily_reports, only:[:index, :create, :show, :edit, :update]
+  	resources :daily_reports, only:[:create, :show, :edit, :update]do
+      member do
+        get :calendar, as: :calendar
+      end
+    end
   	resources :users, only:[:show, :edit, :update]
   	resources :construction_sites, only:[:index, :show]
   	resources :photos, only:[:new, :create]

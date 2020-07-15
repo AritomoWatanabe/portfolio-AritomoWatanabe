@@ -39,7 +39,7 @@
 
 			<div>
 				<%= f.label :日付 %>
-        		<%= raw sprintf(f.date_select(:date	, start_year: Time.now.year, end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %>
+        		<%= raw sprintf(f.date_select(:start_time, start_year: Time.now.year, end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %>
         	</div>
 
         	<div>

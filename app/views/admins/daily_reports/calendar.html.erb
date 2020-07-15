@@ -1,0 +1,30 @@
+
+<%= render "shared/admin_header" %>
+
+
+<div class = "container">
+
+	<div class = "row">
+
+		<div><%= @construction_site.name %>の日報一覧</div>
+
+	</div>
+
+
+	<div class= "row">
+
+
+		<%= month_calendar events: @daily_reports do |date, daily_reports| %>
+			<%= date.day %>
+
+			<% daily_reports.each do |daily_report| %>
+				<div>
+					<%= link_to daily_report.construction_site.name, admins_daily_report_path(daily_report.id) %>
+				</div>
+			<% end %>
+
+		<% end %>
+
+	</div>
+
+</div>
