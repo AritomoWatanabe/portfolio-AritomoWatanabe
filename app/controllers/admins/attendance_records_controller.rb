@@ -1,9 +1,8 @@
 class Admins::AttendanceRecordsController < ApplicationController
 
-# 出勤簿カレンダー
 
 	def show
-		@user = User.find(params[:id])
+		@attendance_record = AttendanceRecord.find(params[:id])
 	end
 
 

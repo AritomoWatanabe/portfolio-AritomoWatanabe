@@ -14,7 +14,7 @@
       <tbody>
         <tr>
          <th>日付</th>
-         <td><%= @daily_report.start_time %></td>
+         <td><%= @daily_report.start_time.strftime("%Y-%m-%d") %></td>
        </tr>
 
        <tr>

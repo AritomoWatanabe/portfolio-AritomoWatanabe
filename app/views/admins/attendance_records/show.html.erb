@@ -3,21 +3,26 @@
 
 <div class = "container">
 
-	<div class = "row">
-
-		<div><%= @user.family_name %><%= @user.first_name %>さんの出勤簿</div>
-
-	</div>
-
-
 	<div class= "row">
+  		<div class="col-lg-4">
 
-		<!-- ネットを参考にここにuserの時間を入れるようにする -->
+    		<div>
+	 			<mark style="font-size: 20px;">打刻詳細</mark>
+			</div>
 
-		<%= month_calendar do |date| %>
-			<%= date.day %>
-		<% end %>
+	<table class="table">
+      <tbody>
+        <tr>
+         <th>現場名</th>
+         <td><%= @attendance_record.construction_site.name %></td>
+       </tr>
 
-	</div>
+       <tr>
+         <td>打刻時間</td>
+         <td><%= @attendance_record.begin_at.strftime("%Y-%m-%d %H:%M") %> 〜 <%= @attendance_record.finish_at.strftime("%Y-%m-%d %H:%M") %></td>
+       </tr>
+
+    </tbody>
+  </table>
 
 </div>
