@@ -10,7 +10,8 @@ class Users::AttendanceRecordsController < ApplicationController
 		end
 	end
 
-	def index
+	def calendar
+		@attendance_records = AttendanceRecord.where(user_id: params[:id])
 	end
 
 	def show
@@ -35,7 +36,7 @@ class Users::AttendanceRecordsController < ApplicationController
     		params.require(:attendance_record).permit(
     			:user_id,
    				:construction_site_id,
-   				:begin_at,
+   				:start_time,
    				:finish_at)
   		end
 
