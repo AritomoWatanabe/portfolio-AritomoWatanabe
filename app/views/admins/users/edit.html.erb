@@ -3,14 +3,14 @@
 
 <div class = "container">
 
-	<div class= "row">
-  		<div class="col-xs-8 col-xs-offset-2">
+  <div class= "row">
 
-  			<div>
-	 			<mark style="font-size: 20px;">
-	 				<%= @user.family_name %>
-        			<%= @user.first_name %>さんの情報編集</mark>
-			</div>
+    <div class="col-xs-7">
+
+    <div class="title">
+	 		<%= @user.family_name %>
+      <%= @user.first_name %>さんの情報編集
+		</div>
 
 			<%= form_for @user, url: admins_user_path do |f| %>
 

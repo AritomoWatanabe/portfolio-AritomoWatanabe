@@ -1,7 +1,5 @@
 
-
 <%= render "shared/user_header" %>
-
 
 <div class = "container">
 
@@ -30,15 +28,18 @@
 
             <tr>
               <th>工期</th>
-              <td><%= @construction_site.period.strftime("%Y-%m-%d")  %> 〜 <%= @construction_site.period_end.strftime("%Y-%m-%d") %>（予定）</td>
+              <td><%= @construction_site.period.strftime("%Y-%m-%d") %> 〜 <%= @construction_site.period_end.strftime("%Y-%m-%d") %>（予定）</td>
             </tr>
 
             <tr>
               <th>その他</th>
               <td><%= @construction_site.caution %></td>
             </tr>
+
             </tbody>
         </table>
+
+        <div class="btn1"><%= link_to "MAP",map_users_construction_site_path(@construction_site.id),class: 'btn btn-primary' %></div>
 
       </div>
 

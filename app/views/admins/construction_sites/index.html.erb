@@ -4,12 +4,12 @@
 <div class = "container">
 
 	<div class= "row">
-  		<div class="col-xs-8 col-xs-offset-2">
 
-    		<div>
-	 			<mark style="font-size: 20px;">現場一覧</mark>
-	 				<%= link_to new_admins_construction_site_path do %>
-	 					<%= "+" %>
+  		<div class="col-xs-11">
+
+    		<div class="title">現場一覧&ensp;
+	 				<%= link_to new_admins_construction_site_path, :style=>"color:black;" do %>
+	 					<i class="fas fa-plus"></i>
 	 				<% end %>
 			</div>
 
@@ -37,9 +37,6 @@
 			</tbody>
 			<% end %>
 		</table>
-
-
-		<div class="text-center"><%= paginate @construction_sites %></div>
 
 		</div>
 	</div>

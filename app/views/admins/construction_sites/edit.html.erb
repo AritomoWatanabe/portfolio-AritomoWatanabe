@@ -4,8 +4,10 @@
 <div class = "container">
 
   <div class = "row">
-      <h2>現場 情報編集</h2>
-  </div>
+
+  <div class="col-xs-7">
+
+    <div class="title">現場 情報編集</div>
 
   <%= form_for @construction_site, url: admins_construction_site_path(current_admin.id) do |f| %>
 
@@ -14,48 +16,40 @@
     <tbody>
 
       <tr>
-        <td><%= f.label :現場名 %>
-          <%= f.text_field :name %>
-        </td>
+        <td><%= f.label :現場名 %></td>
+        <td><%= f.text_field :name %></td>
       </tr>
 
       <tr>
-        <td><%= f.label :現場住所 %>
-          <%= f.text_field :address %>
-        </td>
+        <td><%= f.label :現場住所 %></td>
+        <td><%= f.text_field :address %></td>
       </tr>
 
        <tr>
         <td><%= f.label :元請け業者 %></td>
         <td><%= f.text_field :prime_contractor %></td>
-        <td></td>
-        <td></td>
       </tr>
 
       <tr>
         <td><%= f.label :工期 %></td>
-        <td><%= raw sprintf(f.date_select(:period, start_year: Time.now.year,end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %></td>
-        <td><%= raw sprintf(f.date_select(:period_end, start_year: Time.now.year,end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %></td>
-        <td></td>
+        <td><%= raw sprintf(f.date_select(:period,prefix:'birthday', start_year: Time.now.year,end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %>&emsp;〜&emsp;<%= raw sprintf(f.date_select(:period_end, start_year: Time.now.year,end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %></td>
       </tr>
 
       <tr>
         <td><%= f.label :その他 %></td>
         <td><%= f.text_field :caution %></td>
-        <td></td>
-        <td></td>
       </tr>
 
-
-      <tr>
-        <td> <%= f.submit "変更を保存", class: "btn btn-primary btn-lg" %></td>
-        <td></td>
-        <td></td>
-      </tr>
     </tbody>
 
   </table>
 
+  <div class="btn1"><%= f.submit "変更を保存", class: "btn btn-primary" %></div>
+
   <% end %>
+
+</div>
+
+</div>
 
 </div>

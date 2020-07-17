@@ -1,7 +1,7 @@
 class Admins::ConstructionSitesController < ApplicationController
 
 	def index
-		@construction_sites = ConstructionSite.all.page(params[:page]).per(10)
+		@construction_sites = ConstructionSite.all
 	end
 
 	def new

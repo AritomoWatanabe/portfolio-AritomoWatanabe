@@ -3,19 +3,22 @@
 
 <div class = "container">
 
-	<div class= "row">
+    <div class= "row">
 
-		<div class="col-lg-4">
+        <div class="col-xs-12">
 
-        	<div>
-          		<mark style="font-size: 20px;">現場写真</mark>
-        	</div>
+        	<div class="title">現場最新情報</div>
 
 			<% @photos.each do |photo| %>
 
-				<%= attachment_image_tag photo, :image, :fill, 100, 50 %>
+            <div class="col-xs-4">
+                <div class="img-thumbnail">
+				    <%= attachment_image_tag photo, :image, :fill, 300, 250 %>
+                </div>
+            </div>
 
-    		<% end %>
+            <% end %>
+
 
     	</div>
 
