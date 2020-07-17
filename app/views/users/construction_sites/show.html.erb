@@ -1,15 +1,15 @@
 
+
 <%= render "shared/user_header" %>
+
 
 <div class = "container">
 
 	<div class= "row">
 
-  		<div class="col-lg-4">
+  		<div class="col-xs-4">
 
-        <div>
-	 		    <mark style="font-size: 20px;">現場詳細</mark>
-        </div>
+        <div class="title">現場詳細</div>
 
         <table class="table">
           <tbody>
@@ -19,22 +19,22 @@
             </tr>
 
             <tr>
-              <td>現場住所</td>
+              <th>現場住所</th>
               <td><%= @construction_site.address %></td>
             </tr>
 
             <tr>
-              <td>元請け業者</td>
+              <th>元請け業者</th>
               <td><%= @construction_site.prime_contractor %></td>
             </tr>
 
             <tr>
-              <td>工期</td>
+              <th>工期</th>
               <td><%= @construction_site.period.strftime("%Y-%m-%d")  %> 〜 <%= @construction_site.period_end.strftime("%Y-%m-%d") %>（予定）</td>
             </tr>
 
             <tr>
-              <td>その他</td>
+              <th>その他</th>
               <td><%= @construction_site.caution %></td>
             </tr>
             </tbody>
@@ -42,19 +42,19 @@
 
       </div>
 
-      <div class="col-lg-4">
+      <div class="col-xs-8">
 
-        <div>
-          <mark style="font-size: 20px;">現場写真</mark>
-        </div>
-
-        <div><%= link_to "写真を追加する",new_users_photo_path, class: 'btn btn-primary' %></div>
+        <div class="title">現場写真 &emsp; <%= link_to "写真を追加する",new_users_photo_path, class: 'btn btn-primary' %></div>
 
         <% @photos.each do |photo| %>
 
+        <div class="col-xs-4">
           <% if photo.construction_site.id == @construction_site.id %>
-            <%= attachment_image_tag photo, :image, :fill, 100, 50 %>
+          <div class="img-thumbnail">
+            <%= attachment_image_tag photo, :image, :fill, 200,200 %>
+          </div>
           <% end %>
+          </div>
 
         <% end %>
       </div>
@@ -62,6 +62,9 @@
   </div>
 
 </div>
+
+
+
 
 
 

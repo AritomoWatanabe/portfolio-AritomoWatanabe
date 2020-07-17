@@ -4,31 +4,34 @@
 <div class = "container">
 
 	<div class= "row">
-  		<div class="col-lg-8">
 
-    		<div>
-	 			<mark style="font-size: 20px;">打刻</mark>
-			</div>
+  		<div class="col-xs-9">
 
-			<%= form_for @attendance_record, url: users_attendance_record_path(@attendance_record.id) do |f| %>
+        <div class="title">打刻編集</div>
 
-          	<div>
-            	<%= f.label :construction_site, "現場名" %><br>
-            	<%= f.collection_select(:construction_site_id, ConstructionSite.all , :id, :name,:prompt => "選択してください") %>
-          	</div>
+          <%= form_for @attendance_record, url: users_attendance_record_path(@attendance_record.id) do |f| %>
 
-      		<div>
-      			<%= "出勤" %>
-      			<%= f.datetime_select :start_time, minute_step: 15 %>
-        		<%= "〜　退勤" %>
-        		<%= f.datetime_select :finish_at, minute_step: 15 %>
-      		</div>
+          <table class="table">
+            <tr>
+              <th>現場名</th>
+              <td><%= f.collection_select(:construction_site_id, ConstructionSite.all , :id, :name,:prompt => "選択してください") %></td>
+          	</tr>
 
-      		<%= f.submit "打刻", class: "btn btn-primary" %>
+      		  <tr>
+              <th><%= "出勤" %></th>
+              <td><%= f.datetime_select :start_time, minute_step: 15 %></td>
+              <th><%= "〜　退勤" %></th>
+        		  <td><%= f.datetime_select :finish_at, minute_step: 15 %></td>
+      		  </tr>
+
+          </table>
+
+      		  <%= f.submit "編集する", class: 'btn btn-primary col-lg-offset-12'  %>
 
       		<% end %>
 
   		</div>
+
   	</div>
 
 </div>

@@ -1,42 +1,69 @@
+<script src="https://kit.fontawesome.com/ed00617fa7.js" crossorigin="anonymous"></script>
 
-<header class="navbar navbar-fixed-top", style="background-color: #99CCFF;">
-    <div class="container">
+<div class="navbar navbar-fixed-top" role="navigation">
 
-      <nav class="nav navbar-nav navbar-left">
-        <span style="font-size: 35px;">GENBA-MASTER</span>
-      </nav>
+<div class="sitename">
+  <div class="container-fluid">
+    <h2>&emsp;&emsp;GENBA-MASTER</h2>
+  </div>
+</div>
 
-      <nav>
-        <ul class="nav navbar-nav navbar-right">
-          <!--if文でサインインとアウト時の表示を変更-->
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <ul class="nav na-tabs nav-justified">
+
           <% if user_signed_in? %>
-          <li><%= link_to "マイページ", users_user_path(current_user.id) %></li>
-          <li><%= link_to "打刻・日報", users_root_path %></li>
-          <li><%= link_to "現場一覧", users_construction_sites_path %></li>
-          <li><%= link_to "機械・機材一覧", users_machines_path %></li>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <li>
+            <%= link_to users_user_path(current_user.id), :style=>"color:black;" do %>
+            <i class="fas fa-user">マイページ</i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to users_root_path, :style=>"color:black;" do %>
+            <i class="fas fa-clock">打刻・日報</i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to users_construction_sites_path, :style=>"color:black;" do %>
+            <i class="fas fa-hard-hat">現場一覧</i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to users_machines_path, :style=>"color:black;" do %>
+            <i class="fas fa-tools">機械・機材一覧</i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, :style=>"color:black;", method: :delete do %>
+            <i class="fas fa-sign-out-alt">ログアウト</i>
+            <% end %>
           </li>
 
 
           <% else %>
 
-
-          <li><%= link_to "ログイン", new_user_session_path%></li>
-          <li><%= link_to "管理者の方はこちら", new_admin_session_path%></li>
+          <li>
+            <%= link_to new_user_session_path, :style=>"color:black;" do %>
+            <i class="fas fa-sign-in-alt">ログイン</i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_admin_session_path, :style=>"color:black;" do %>
+            <i class="fas fa-user">管理者の方はこちら</i>
+            <% end %>
+          </li>
 
           <% end %>
         </ul>
       </nav>
 
     </div>
-  </header>
-  <!--ヘッダーの記述-->
+  </div>
+</div>
 
 
-  <footer class="navbar navbar-fixed-bottom", style="background-color: #99CCFF;">
 
-  </footer>
 
-</body>
 
-</html>
+<footer class="navbar navbar-fixed-bottom"></footer>
+

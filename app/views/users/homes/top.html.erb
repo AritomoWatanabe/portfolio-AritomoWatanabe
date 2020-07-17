@@ -1,15 +1,17 @@
 
 <%= render "shared/user_header" %>
 
+<!-- 打刻 -->
+
 <div class = "container">
 
 	<div class= "row">
-  		<div class="col-xs-8 col-xs-offset-2">
 
-  		<!-- 打刻 -->
-    	<div>
-	 		  <mark style="font-size: 20px;">打刻</mark>
-			</div>
+    <div class="col-lg-1">
+      <div class="title">打刻</div>
+    </div>
+
+    <div class="col-lg-11">
 
 			<%= form_for @attendance_record, url: users_attendance_records_path, method: :post do |f| %>
 
@@ -24,24 +26,38 @@
         		<%= f.datetime_select :finish_at, minute_step: 15 %>
       		</div>
 
-      		<%= f.submit "打刻", class: "btn btn-primary" %>
-          <%= link_to "出勤簿", calendar_users_attendance_record_path(current_user.id), class: "btn btn-primary" %>
+          <div class = "col-lg-offset-10">
+      		    <%= f.submit "打刻", class: "btn btn-primary" %>
+              <%= link_to "出勤簿", calendar_users_attendance_record_path(current_user.id), class: 'btn btn-primary' %>
+          </div>
 
       <% end %>
-      <!-- 打刻 -->
+
+    </div>
+
+  </div>
+
+</div>
+<!-- 打刻 -->
 
 
-      		<!-- 日報 -->
-			<div>
-	 			<mark style="font-size: 20px;">日報</mark>
-			</div>
+<!-- 日報 -->
+<div class = "container">
+
+  <div class= "row">
+
+    <div class="col-lg-1">
+			<div class="title">日報</div>
+    </div>
+
+    <div class="col-lg-4">
 
 			<%= form_for @daily_report, url: users_daily_reports_path do |f| %>
 
-			<div>
-				<%= f.label :日付 %>
+          <div>
+				    <%= f.label :日付 %>
         		<%= raw sprintf(f.date_select(:start_time, start_year: Time.now.year, end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %>
-        	</div>
+          </div>
 
         	<div>
         		<%= f.label :construction_site, "現場名" %><br>
@@ -57,6 +73,9 @@
         		<%= f.label :その他 %>
           		<%= f.text_field :etcetera %>
           	</div>
+    </div>
+
+    <div class="col-lg-3">
 
           	<div>
         		<%= f.label :自社作業員名 %>
@@ -83,6 +102,10 @@
           		<%= f.select :watchman, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
           	</div>
 
+    </div>
+
+    <div class="col-lg-3">
+
           	<div>
           		<%= f.label :ゴミ4t車（台） %>
           		<%= f.select :garbage_collection_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
@@ -108,20 +131,29 @@
           		<%= f.select :soil_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
           	</div>
 
+    </div>
+
+  </div>
 
 
+    <div class="row">
 
-			<%= f.submit "日報作成", class: "btn btn-primary" %>
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
 
-      		<% end %>
+          <%= f.submit "日報作成", class: "btn btn-primary" %>
 
-			<!-- 日報 -->
+          <% end %>
+
+        </div>
 
     </div>
-  </div>
+
+
 </div>
 
-
+<!-- 日報 -->
 
 
 

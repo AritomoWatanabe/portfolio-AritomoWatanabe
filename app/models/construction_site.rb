@@ -5,4 +5,5 @@ class ConstructionSite < ApplicationRecord
 	has_many :machines
 	has_many :photos
 
+
 end
