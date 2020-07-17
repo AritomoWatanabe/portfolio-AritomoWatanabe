@@ -1,12 +1,16 @@
 class Users::ConstructionSitesController < ApplicationController
 
 	def index
-		@construction_sites = ConstructionSite.all.page(params[:page]).per(10)
+		@construction_sites = ConstructionSite.all
 	end
 
 	def show
 		@construction_site = ConstructionSite.find(params[:id])
 		@photos = Photo.all
+	end
+
+	def map
+		@construction_site = ConstructionSite.find(params[:id])
 	end
 
 

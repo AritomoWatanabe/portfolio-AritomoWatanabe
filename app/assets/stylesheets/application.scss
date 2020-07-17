@@ -52,7 +52,7 @@ table{
 	margin-top: 15px;
 	margin-bottom: 30px;
 }
-
+/* user詳細の編集する */
 .btn1 {
   text-align: right;
 }
@@ -76,7 +76,10 @@ table{
 }
 
 #map{
-  height: 400px;
+  height: 500px;
+  border: solid;
+  border-color: #006699;
+  margin-top: 15px;
 }
 
 

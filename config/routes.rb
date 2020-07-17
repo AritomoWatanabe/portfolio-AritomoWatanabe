@@ -49,7 +49,11 @@ Rails.application.routes.draw do
       end
     end
   	resources :users, only:[:show, :edit, :update]
-  	resources :construction_sites, only:[:index, :show]
+  	resources :construction_sites, only:[:index, :show]do
+      member do
+        get :map, as: :map
+      end
+    end
   	resources :photos, only:[:new, :create]
   	resources :machines, only:[:index, :update]
   	root 'homes#top'

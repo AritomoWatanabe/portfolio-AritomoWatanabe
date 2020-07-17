@@ -4,17 +4,17 @@
 <div class = "container">
 
 	<div class= "row">
-  		<div class="col-xs-8 col-xs-offset-2">
 
-    		<div>
-	 			<mark style="font-size: 20px;">
-	 				<%= @user.family_name %>
-        			<%= @user.first_name %>さんの情報詳細</mark>
-			</div>
+    <div class="col-xs-7">
 
-			<table border="0">
+    <div class="title">
+      <%= @user.family_name %>
+      <%= @user.first_name %>さんの情報詳細
+    </div>
+
+			<table class = "table table-bordered">
       			<tr>
-        			<th>顧客ID</th>
+        			<th>従業員ID</th>
         			<td>
           				<%= @user.id %>
         			</td>
@@ -36,9 +36,9 @@
         			</td>
       			</tr>
 
-     			 <tr>
-        			<th>住所</th>
-        			<td><%= @user.address %></td>
+     			  <tr>
+        		  <th>住所</th>
+              <td><%= @user.address %></td>
       			</tr>
 
       			<tr>
@@ -49,21 +49,21 @@
       			<tr>
         			<th>メールアドレス</th>
         			<td><%= @user.email %></td>
-     			</tr>
+     			  </tr>
 
-     			<tr>
-     				<th>ステータス</th>
-     				<td><% if @user.is_withdrawal == false %>
+     			  <tr>
+     			    <th>ステータス</th>
+     			    <td><% if @user.is_withdrawal == false %>
               				<span class="status">有効会員</span>
             			<% else %>
               				<span class="status">退会済会員</span>
             			<% end %>
-            		</td>
-            	</tr>
+            	</td>
+            </tr>
 
     		</table>
 
-    		<div>
+    		<div class = "btn1">
       			<%=link_to "編集する", edit_admins_user_path(@user.id),class: "btn btn-primary", style:"margin-right:30px" %>
     		</div>
 

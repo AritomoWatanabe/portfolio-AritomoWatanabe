@@ -1,0 +1,23 @@
+
+<head>
+
+<%= render "shared/user_header" %>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMBTA1_rbtSC4-NrxqMOT5QHzBgSIA3Ck&callback=initMap" async defer></script>
+
+</head>
+
+<div class = "container">
+
+
+<h2>現場地図</h2>
+
+<!-- 地名入力用のinputを追加 -->
+<input id="address" type="textbox" value="<%= @construction_site.address %>">
+
+<!-- buttonをクリックしたらcodeAddressを実行　-->
+<input type="button" value="クリックをお願いします" onclick="codeAddress()">
+<div id='map'></div>
+
+
+</div>

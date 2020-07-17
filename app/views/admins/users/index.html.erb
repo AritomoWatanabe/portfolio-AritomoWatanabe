@@ -4,12 +4,12 @@
 <div class = "container">
 
 	<div class= "row">
-  		<div class="col-xs-8 col-xs-offset-2">
 
-    		<div>
-	 			<mark style="font-size: 20px;">従業員一覧</mark>
-	 				<%= link_to new_user_registration_path do %>
-	 					<%= "+" %>
+  		<div class="col-xs-11">
+
+    		<div class="title">従業員一覧&ensp;
+	 				<%= link_to new_user_registration_path, :style=>"color:black;" do %>
+	 					<i class="fas fa-user-plus"></i>
 	 				<% end %>
 			</div>
 
@@ -20,8 +20,8 @@
 		    <th style="width:15%">従業員ID</th>
 		    <th style="width:25%">氏名</th>
 		    <th style="width:30%">メールアドレス</th>
-		    <th style="width:15%">ステータス</th>
-		    <th style="width:15%"></th>
+		    <th style="width:10%">ステータス</th>
+		    <th style="width:20%">&emsp;</th>
 		  </tr>
 	    </thead>
 
@@ -42,14 +42,11 @@
 		        <p>退会済</p>
 		      <% end %>
 			</td>
-			<td><%= link_to "出勤簿",calendar_admins_attendance_record_path(user.id), class: 'btn btn-primary' %></td>
+			<td> &emsp; <%= link_to "出勤簿",calendar_admins_attendance_record_path(user.id), class: 'btn btn-primary' %></td>
 		  </tr>
 		</tbody>
 	  <% end %>
 	</table>
-
-
-    <div class="text-center"><%= paginate @users %></div>
 
   </div>
 </div>
