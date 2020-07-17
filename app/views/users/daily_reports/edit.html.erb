@@ -3,97 +3,117 @@
 
 <div class = "container">
 
+  <div class="title">日報編集</div>
+
 	<div class= "row">
-  		<div class="col-lg-4">
 
-    		<div>
-	 			<mark style="font-size: 20px;">日報編集</mark>
-			</div>
+  		<div class="col-xs-5">
 
+        <table class="table">
+          <tbody>
 
-			<%= form_for @daily_report, url: users_daily_report_path do |f| %>
+          <%= form_for @daily_report, url: users_daily_report_path do |f| %>
 
-			<div>
-				<%= f.label :日付 %>
-        		<%= raw sprintf(f.date_select(:start_time	, start_year: Time.now.year, end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %>
-        	</div>
+            <tr>
+        		  <td>日付</td>
+              <td><%= raw sprintf(f.date_select(:start_time	, start_year: Time.now.year, end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %></td>
+            </tr>
 
-        	<div>
-        		<%= f.label :construction_site, "現場名" %><br>
-        		<%= f.collection_select(:construction_site_id, ConstructionSite.all , :id, :name,:prompt => "選択してください") %>
-        	</div>
+            <tr>
+        		  <td>現場名</td>
+        		  <td><%= f.collection_select(:construction_site_id, ConstructionSite.all , :id, :name,:prompt => "選択してください") %></td>
+            </tr>
 
-        	<div>
-        		<%= f.label :作業内容 %>
-          		<%= f.text_field :content %>
-          	</div>
+            <tr>
+              <td>作業内容</td>
+          		<td><%= f.text_field :content %></td>
+            </tr>
 
-          	<div>
-        		<%= f.label :その他 %>
-          		<%= f.text_field :etcetera %>
-          	</div>
+            <tr>
+              <td>その他</td>
+              <td><%= f.text_field :etcetera %></td>
+            </tr>
 
-          	<div>
-        		<%= f.label :自社作業員名 %>
-          		<%= f.text_field :company_people %>
-          	</div>
+          </tbody>
+        </table>
 
-          	<div>
-          		<%= f.label :手元工（人） %>
-          		<%= f.select :care_people, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
-          	</div>
+      </div>
 
-          	<div>
-          		<%= f.label :とび工（人） %>
-          		<%= f.select :scaffold_people, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
-          	</div>
+      <div class="col-xs-5">
 
-          	<div>
-          		<%= f.label :内装工（人） %>
-          		<%= f.select :interior_people, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
-          	</div>
+        <table class="table">
+          <tbody>
 
-          	<div>
-          		<%= f.label :警備員（人） %>
-          		<%= f.select :watchman, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
-          	</div>
+            <tr>
+        		  <td>自社作業員名</td>
+              <td><%= f.text_field :company_people %></td>
+            </tr>
 
-          	<div>
-          		<%= f.label :ゴミ4t車（台） %>
-          		<%= f.select :garbage_collection_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
-          	</div>
+            <tr>
+              <td>手元工（人）</td>
+              <td><%= f.select :care_people, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
+            </tr>
 
-          	<div>
-          		<%= f.label :ゴミ大型車（台） %>
-          		<%= f.select :big_garbage_collection_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
-          	</div>
+            <tr>
+              <td>とび工（人）</td>
+              <td><%= f.select :scaffold_people, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
+            </tr>
 
-          	<div>
-          		<%= f.label :ガラ8t車（台） %>
-          		<%= f.select :concrete_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
-          	</div>
+            <tr>
+              <td>内装工（人）</td>
+              <td><%= f.select :interior_people, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
+            </tr>
 
-          	<div>
-          		<%= f.label :ガラ大型車（台） %>
-          		<%= f.select :big_concrete_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
-          	</div>
+            <tr>
+              <td>警備員（人）</td>
+              <td><%= f.select :watchman, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
+            </tr>
 
-          	<div>
-          		<%= f.label :埋め戻し残土大型車（台） %>
-          		<%= f.select :soil_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%>
-          	</div>
+            <tr>
+              <td>ゴミ4t車（台）</td>
+              <td><%= f.select :garbage_collection_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
+            </tr>
 
+            <tr>
+              <td>ゴミ大型車（台）</td>
+              <td><%= f.select :big_garbage_collection_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
+            </tr>
 
+            <tr>
+              <td>ガラ8t車（台）</td>
+              <td><%= f.select :concrete_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
+            </tr>
 
+            <tr>
+              <td>ガラ大型車（台）</td>
+              <td><%= f.select :big_concrete_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
+            </tr>
 
-			<%= f.submit "編集", class: "btn btn-primary" %>
+            <tr>
+              <td>埋め戻し残土大型車（台）</td>
+              <td><%= f.select :soil_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <div class="row">
+
+          <div class="col-lg-8">
+          </div>
+
+          <div class="col-lg-2">
+            <%= f.submit "編集", class: "btn btn-primary" %>
+          </div>
+
+        </div>
 
       		<% end %>
 
+      </div>
 
-
-      	</div>
-    </div>
+  </div>
 
 </div>
+
 

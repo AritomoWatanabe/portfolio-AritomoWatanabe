@@ -3,87 +3,115 @@
 
 <div class = "container">
 
+  <div class="title">日報詳細</div>
+
 	<div class= "row">
-  		<div class="col-lg-4">
 
-    		<div>
-	 			<mark style="font-size: 20px;">日報詳細</mark>
-			</div>
+      <div class="col-xs-4">
 
-	<table class="table">
-      <tbody>
-        <tr>
-         <th>日付</th>
-         <td><%= @daily_report.start_time.strftime("%Y-%m-%d") %></td>
-       </tr>
+        <table class="table">
+          <tbody>
 
-       <tr>
-         <td>現場名</td>
-         <td><%= @daily_report.construction_site.name %></td>
-       </tr>
+            <tr>
+              <td>日付</td>
+              <td><%= @daily_report.start_time.strftime("%Y-%m-%d") %></td>
+            </tr>
 
-       <tr>
-         <td>作業内容</td>
-         <td><%= @daily_report.content %></td>
-       </tr>
+            <tr>
+              <td>現場名</td>
+              <td><%= @daily_report.construction_site.name %></td>
+            </tr>
 
-       <tr>
-         <td>その他</td>
-         <td><%= @daily_report.etcetera %></td>
-       </tr>
+            <tr>
+              <td>作業内容</td>
+              <td><%= @daily_report.content %></td>
+            </tr>
 
-       <tr>
-         <td>自社</td>
-         <td><%= @daily_report.company_people %></td>
-       </tr>
+            <tr>
+              <td>その他</td>
+              <td><%= @daily_report.etcetera %></td>
+            </tr>
 
-       <tr>
-         <td>手元工</td>
-         <td><%= @daily_report.care_people %>人</td>
-       </tr>
+          </tbody>
+        </table>
 
-       <tr>
-         <td>とび工</td>
-         <td><%= @daily_report.scaffold_people %>人</td>
-       </tr>
-
-       <tr>
-         <td>内装工</td>
-         <td><%= @daily_report.interior_people %>人</td>
-       </tr>
-
-       <tr>
-         <td>警備員</td>
-         <td><%= @daily_report.watchman %>人</td>
-       </tr>
-
-       <tr>
-         <td>ゴミ4t車</td>
-         <td><%= @daily_report.garbage_collection_car %>台</td>
-       </tr>
-
-       <tr>
-         <td>ゴミ大型車</td>
-         <td><%= @daily_report.big_garbage_collection_car %>台</td>
-       </tr>
-
-       <tr>
-         <td>ガラ8t車</td>
-         <td><%= @daily_report.concrete_car %>台</td>
-       </tr>
-
-       <tr>
-         <td>ガラ大型車</td>
-         <td><%= @daily_report.big_concrete_car %>台</td>
-       </tr>
-
-       <tr>
-         <td>埋め戻し残土大型車</td>
-         <td><%= @daily_report.soil_car %>台</td>
-       </tr>
+      </div>
 
 
-    </tbody>
-  </table>
-  <%= link_to "編集する",edit_users_daily_report_path, class: 'btn btn-info btn-lg col-lg-offset-12' %>
+      <div class="col-xs-4">
+
+        <table class="table">
+
+          <tbody>
+
+          <tr>
+            <td>自社</td>
+            <td><%= @daily_report.company_people %></td>
+          </tr>
+
+          <tr>
+            <td>手元工</td>
+            <td><%= @daily_report.care_people %>人</td>
+          </tr>
+
+          <tr>
+            <td>とび工</td>
+            <td><%= @daily_report.scaffold_people %>人</td>
+          </tr>
+
+          <tr>
+            <td>内装工</td>
+            <td><%= @daily_report.interior_people %>人</td>
+          </tr>
+
+          <tr>
+            <td>警備員</td>
+            <td><%= @daily_report.watchman %>人</td>
+          </tr>
+
+          <tr>
+            <td>ゴミ4t車</td>
+            <td><%= @daily_report.garbage_collection_car %>台</td>
+          </tr>
+
+          <tr>
+            <td>ゴミ大型車</td>
+            <td><%= @daily_report.big_garbage_collection_car %>台</td>
+          </tr>
+
+          <tr>
+            <td>ガラ8t車</td>
+            <td><%= @daily_report.concrete_car %>台</td>
+          </tr>
+
+          <tr>
+            <td>ガラ大型車</td>
+            <td><%= @daily_report.big_concrete_car %>台</td>
+          </tr>
+
+          <tr>
+            <td>埋め戻し残土大型車</td>
+            <td><%= @daily_report.soil_car %>台</td>
+          </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-8">
+        </div>
+
+        <div class="col-lg-2">
+          <%= link_to "編集する",edit_users_daily_report_path, class: 'btn btn-primary' %>
+        </div>
 </div>
+
+
+
+
