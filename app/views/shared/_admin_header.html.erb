@@ -29,7 +29,7 @@
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_admin_session_path, :style=>"color:black;" do %>
+            <%= link_to destroy_admin_session_path, class: 'up', method: :delete, :style=>"color:black;" do %>
             <i class="fas fa-sign-out-alt">ログアウト</i>
             <% end %>
           </li>

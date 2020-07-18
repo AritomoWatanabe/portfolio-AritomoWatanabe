@@ -13,6 +13,15 @@ class ApplicationController < ActionController::Base
 		admins_users_path
 	end
 
+	# def after_sign_out_path_for(resource)
+	# 	case resource
+	# 	when Admin
+	# 		new_admin_session_path
+	# 	when User
+	# 		new_user_session_path
+	# 	end
+	# end
+
 
 	# deviseに関わる全てのアクションの前にconfigure_permitted_parametersをさせる
 	# つまりキーをコントローラに受け取らせる
