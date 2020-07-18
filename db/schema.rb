@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_18_035524) do
+ActiveRecord::Schema.define(version: 2020_07_18_134807) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 2020_07_18_035524) do
     t.integer "construction_site_id", null: false
     t.datetime "start_time", null: false
     t.datetime "finish_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cars", force: :cascade do |t|
+    t.string "name", null: false
+    t.boolean "still_run", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -79,6 +86,16 @@ ActiveRecord::Schema.define(version: 2020_07_18_035524) do
     t.string "explanation", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.string "content", null: false
+    t.datetime "start_time", null: false
+    t.datetime "finish_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "construction_site_id"
+    t.integer "car_id"
   end
 
   create_table "users", force: :cascade do |t|

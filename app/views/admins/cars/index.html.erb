@@ -1,0 +1,75 @@
+
+
+<%= render "shared/admin_header" %>
+
+<div class = "container">
+
+	<div class= "row">
+
+  		<div class="col-xs-6">
+
+  			<div class="title">新規車両 追加</div>
+
+			<%= form_for @car, url: admins_cars_path do |f| %>
+
+			<div class="field form-group">
+        		<%= f.label :name, "車両名" %>
+        		<%= f.text_field :name, class: "form-control" %>
+      		</div>
+
+      		<div class="btn1">
+      			<%= f.submit "新規登録", class: "btn btn-primary" %>
+      		</div>
+
+      		<% end %>
+
+  		</div>
+
+  	</div>
+
+	<div class= "row">
+
+  		<div class="col-xs-11">
+
+    		<div class="title">車両一覧</div>
+
+		<table style="margin-top:15px">
+
+	    	<thead class = "thead-light">
+	    		<tr class="active">
+		    		<th style="width:30%">車両名</th>
+		    		<th style="width:25%">状態</th>
+		    		<th style="width:25%">状態選択</th>
+		    		<th style="width:10%"></th>
+		    		<th style="width:10%"></th>
+		  		</tr>
+	    	</thead>
+
+	  		<% @cars.each do |car| %>
+	    	<tbody>
+				<tr>
+		    		<td><%= car.name %></td>
+					<td><% if car.still_run == true %>
+						走行可
+						<% else %>
+						走行不可
+						<% end %>
+					</td>
+
+					<%= form_for car, url: admins_car_path(car.id) do |f| %>
+					<td>
+						<%= f.select :still_run, {走行可: 0, 走行不可: 1}, class: "form-control" %>
+					</td>
+					<td><%= link_to "車両名変更", edit_admins_car_path(car.id),class: "btn btn-primary" %></td>
+					<td><%= f.submit '更新',class: 'btn btn-primary' %><% end %></td>
+
+				</tr>
+			</tbody>
+			<% end %>
+		</table>
+
+
+		</div>
+	</div>
+
+</div>

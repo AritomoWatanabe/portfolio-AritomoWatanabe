@@ -15,27 +15,37 @@
           <% if user_signed_in? %>
           <li>
             <%= link_to users_user_path(current_user.id), :style=>"color:black;" do %>
-            <i class="fas fa-user">マイページ</i>
+            <i class="fas fa-user">&ensp;マイページ</i>
             <% end %>
           </li>
+
           <li>
             <%= link_to users_root_path, :style=>"color:black;" do %>
-            <i class="fas fa-clock">打刻・日報</i>
+            <i class="fas fa-clock">&ensp;打刻・日報</i>
             <% end %>
           </li>
+
           <li>
             <%= link_to users_construction_sites_path, :style=>"color:black;" do %>
-            <i class="fas fa-hard-hat">現場一覧</i>
+            <i class="fas fa-hard-hat">&ensp;現場一覧</i>
             <% end %>
           </li>
+
           <li>
             <%= link_to users_machines_path, :style=>"color:black;" do %>
-            <i class="fas fa-tools">機械・機材一覧</i>
+            <i class="fas fa-tools">&ensp;機械・機材一覧</i>
             <% end %>
           </li>
+
+          <li>
+            <%= link_to users_reservations_path, :style=>"color:black;" do %>
+            <i class="fas fa-truck-loading">&ensp;配車予約カレンダー</i>
+            <% end %>
+          </li>
+
           <li>
             <%= link_to destroy_user_session_path, :style=>"color:black;", method: :delete do %>
-            <i class="fas fa-sign-out-alt">ログアウト</i>
+            <i class="fas fa-sign-out-alt">&ensp;ログアウト</i>
             <% end %>
           </li>
 

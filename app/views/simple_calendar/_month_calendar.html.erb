@@ -3,33 +3,10 @@
 
     <%= link_to t('simple_calendar.previous', default: '前の月'), calendar.url_for_previous_view %>
 
-    <span class="calendar-title"><%= start_date.year %>年
-      <% if t('date.month_names')[start_date.month] == "April"%>
-      <%= "4月" %>
-      <% elsif t('date.month_names')[start_date.month] == "May"%>
-      <%= "5月" %>
-      <% elsif t('date.month_names')[start_date.month] == "June"%>
-      <%= "6月" %>
-      <% elsif t('date.month_names')[start_date.month] == "July"%>
-      <%= "7月" %>
-      <% elsif t('date.month_names')[start_date.month] == "August"%>
-      <%= "8月" %>
-      <% elsif t('date.month_names')[start_date.month] == "September"%>
-      <%= "9月" %>
-      <% elsif t('date.month_names')[start_date.month] == "October"%>
-      <%= "10月" %>
-      <% elsif t('date.month_names')[start_date.month] == "November"%>
-      <%= "11月" %>
-      <% elsif t('date.month_names')[start_date.month] == "December"%>
-      <%= "12月" %>
-      <% elsif t('date.month_names')[start_date.month] == "January"%>
-      <%= "1月" %>
-      <% elsif t('date.month_names')[start_date.month] == "February"%>
-      <%= "2月" %>
-      <% else t('date.month_names')[start_date.month] == "March"%>
-      <%= "3月" %>
-      <% end %>
-      </span>
+    <span class="calendar-title">
+      <%= start_date.year %>年
+      <%= t('date.month_names')[start_date.month] %>
+    </span>
 
     <%= link_to t('simple_calendar.next', default: '次の月'), calendar.url_for_next_view %>
 

@@ -13,24 +13,40 @@
         <ul class="nav na-tabs nav-justified">
 
           <% if admin_signed_in? %>
+
           <li>
             <%= link_to admins_users_path, :style=>"color:black;" do %>
-            <i class="fas fa-user">従業員一覧</i>
+            <i class="fas fa-user">&ensp;従業員一覧</i>
             <% end %>
           </li>
+
           <li>
             <%= link_to admins_construction_sites_path, :style=>"color:black;" do %>
-            <i class="fas fa-hard-hat">現場一覧</i>
+            <i class="fas fa-hard-hat">&ensp;現場一覧</i>
             <% end %>
           </li>
+
           <li>
             <%= link_to admins_machines_path, :style=>"color:black;" do %>
-            <i class="fas fa-tools">機械・機材一覧</i>
+            <i class="fas fa-tools">&ensp;機械・機材一覧</i>
             <% end %>
           </li>
+
+          <li>
+            <%= link_to admins_cars_path, :style=>"color:black;" do %>
+            <i class="fas fa-truck">&ensp;車両一覧</i>
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to admins_reservations_path, :style=>"color:black;" do %>
+            <i class="fas fa-truck-loading">&ensp;配車予約カレンダー</i>
+            <% end %>
+          </li>
+
           <li>
             <%= link_to destroy_admin_session_path, class: 'up', method: :delete, :style=>"color:black;" do %>
-            <i class="fas fa-sign-out-alt">ログアウト</i>
+            <i class="fas fa-sign-out-alt">&ensp;ログアウト</i>
             <% end %>
           </li>
 

@@ -8,6 +8,5 @@ class Users::HomesController < ApplicationController
 	end
 
 
-
 end
 

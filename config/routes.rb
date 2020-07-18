@@ -31,6 +31,8 @@ Rails.application.routes.draw do
       end
     end
   	resources :machines, only:[:index, :create, :update]
+    resources :reservations, only:[:index, :new, :create, :show]
+    resources :cars, only:[:index, :create, :edit, :update]
   	root 'homes#top'
   end
 
@@ -56,6 +58,7 @@ Rails.application.routes.draw do
     end
   	resources :photos, only:[:new, :create]
   	resources :machines, only:[:index, :update]
+    resources :reservations, only:[:index, :new, :create, :show]
   	root 'homes#top'
   end
 
