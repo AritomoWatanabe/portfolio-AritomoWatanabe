@@ -15,6 +15,7 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+//= require jquery_ujs
 
 /*
 mapを関数の外で定義(codeAddressでも使うため)
