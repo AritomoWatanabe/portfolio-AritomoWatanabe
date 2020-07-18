@@ -1,7 +1,7 @@
 class Admins::ConstructionSitesController < ApplicationController
 
 	def index
-		@construction_sites = ConstructionSite.all
+		@construction_sites = ConstructionSite.all.order(created_at: :desc)
 	end
 
 	def new
@@ -38,7 +38,7 @@ class Admins::ConstructionSitesController < ApplicationController
 	private
 	def construction_site_params
 		params.require(:construction_site).permit(
-			:name, :address, :prime_contractor, :period, :period_end, :caution)
+			:name, :address, :prime_contractor, :foremen, :process, :period, :period_end, :caution)
 	end
 
 end

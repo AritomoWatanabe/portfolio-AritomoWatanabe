@@ -5,7 +5,7 @@
 
 	<div class= "row">
 
-  		<div class="col-xs-11">
+  		<div class="col-xs-12">
 
     		<div class="title">現場一覧&ensp;
 	 				<%= link_to new_admins_construction_site_path, :style=>"color:black;" do %>
@@ -13,24 +13,33 @@
 	 				<% end %>
 			</div>
 
-		<table style="margin-top:15px">
+		<table class="table table-hover">
 
 	    	<thead class = "thead-light">
 	    		<tr class="active">
-		    		<th style="width:15%">現場番号</th>
-		    		<th style="width:25%">現場名</th>
-		    		<th style="width:30%">現場住所</th>
-		    		<th style="width:15%">　</th>
-		    		<th style="width:15%">　</th>
+		    		<th>現場名</th>
+		    		<th>現場住所</th>
+		    		<th>元請</th>
+		    		<th>職長</th>
+		    		<th>現在の工程</th>
+		    		<th></th>
+		    		<th></th>
 		  		</tr>
 	    	</thead>
 
 	  		<% @construction_sites.each do |construction_site| %>
 	    	<tbody>
 				<tr>
-		    		<td><%= construction_site.id %></td>
 					<td><%= construction_site.name %></td>
 					<td><%= construction_site.address %></td>
+					<td><% if construction_site.prime_contractor != "弊社" %>
+						<%= construction_site.prime_contractor + "様" %>
+						<% else %>
+						<%= construction_site.prime_contractor %>
+						<% end %>
+					</td>
+					<td><%= construction_site.foremen %></td>
+					<td><%= construction_site.process %></td>
 					<td><%= link_to "詳細",admins_construction_site_path(construction_site.id), class: 'btn btn-primary' %></td>
 					<td><%= link_to "現場日報",calendar_admins_daily_report_path(construction_site.id), class: 'btn btn-primary' %></td>
 				</tr>

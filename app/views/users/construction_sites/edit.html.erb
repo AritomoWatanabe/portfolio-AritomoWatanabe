@@ -1,5 +1,5 @@
 
-<%= render "shared/admin_header" %>
+<%= render "shared/user_header" %>
 
 <div class = "container">
 
@@ -9,7 +9,7 @@
 
     <div class="title">現場 情報編集</div>
 
-  <%= form_for @construction_site, url: admins_construction_site_path(@construction_site.id) do |f| %>
+  <%= form_for @construction_site, url: users_construction_site_path(@construction_site.id) do |f| %>
 
   <table class="table" id="none-border">
 

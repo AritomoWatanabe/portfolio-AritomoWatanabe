@@ -49,12 +49,18 @@ body{
 }
 
 table{
+ 	table-layout: fixed;
+   	width: 100%;
 	margin-top: 15px;
 	margin-bottom: 30px;
 }
-/* user詳細の編集する */
+/* リンクボタン関連 */
 .btn1 {
   text-align: right;
+}
+.btn2 {
+	text-align: right;
+	margin-top: 5px;
 }
 
 .calendar-title {
