@@ -12,34 +12,47 @@
         <table class="table">
           <tbody>
             <tr>
-              <th>現場名</th>
+              <td>現場名</td>
               <td><%= @construction_site.name %></td>
             </tr>
 
             <tr>
-              <th>現場住所</th>
+              <td>現場住所</td>
               <td><%= @construction_site.address %></td>
             </tr>
 
             <tr>
-              <th>元請け業者</th>
+              <td>元請け業者</td>
               <td><%= @construction_site.prime_contractor %></td>
             </tr>
 
             <tr>
-              <th>工期</th>
+              <td>現場職長</td>
+              <td><%= @construction_site.foremen %></td>
+            </tr>
+
+            <tr>
+              <td>現在の工程</td>
+              <td><%= @construction_site.process %></td>
+            </tr>
+
+
+            <tr>
+              <td>工期</td>
               <td><%= @construction_site.period.strftime("%Y-%m-%d") %> 〜 <%= @construction_site.period_end.strftime("%Y-%m-%d") %>（予定）</td>
             </tr>
 
             <tr>
-              <th>その他</th>
+              <td>その他</td>
               <td><%= @construction_site.caution %></td>
             </tr>
 
             </tbody>
         </table>
 
-        <div class="btn1"><%= link_to "MAP",map_users_construction_site_path(@construction_site.id),class: 'btn btn-primary' %></div>
+        <div class="btn1"><%= link_to "編集する",edit_users_construction_site_path, class: 'btn btn-primary' %></div>
+
+        <div class="btn2"><%= link_to "MAP",map_users_construction_site_path(@construction_site.id),class: 'btn btn-primary' %></div>
 
       </div>
 

@@ -49,7 +49,7 @@ Rails.application.routes.draw do
       end
     end
   	resources :users, only:[:show, :edit, :update]
-  	resources :construction_sites, only:[:index, :show]do
+  	resources :construction_sites, only:[:index, :show, :edit, :update]do
       member do
         get :map, as: :map
       end

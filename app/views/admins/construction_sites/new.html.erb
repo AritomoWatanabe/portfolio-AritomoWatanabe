@@ -31,6 +31,11 @@
       </tr>
 
       <tr>
+        <td><%= f.label :現場職長 %></td>
+        <td><%= f.text_field :foremen %></td>
+      </tr>
+
+      <tr>
         <td><%= f.label :工期 %></td>
         <td><%= raw sprintf(f.date_select(:period, start_year: Time.now.year,end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %>&emsp;〜&emsp;<%= raw sprintf(f.date_select(:period_end, start_year: Time.now.year,end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %></td>
       </tr>
@@ -39,6 +44,7 @@
         <td><%= f.label :その他 %></td>
         <td><%= f.text_field :caution %></td>
       </tr>
+
 
   </tbody>
 

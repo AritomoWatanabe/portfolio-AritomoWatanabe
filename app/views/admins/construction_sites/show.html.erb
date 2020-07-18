@@ -12,7 +12,7 @@
         <table class="table">
           <tbody>
             <tr>
-              <th>現場名</th>
+              <td>現場名</td>
               <td><%= @construction_site.name %></td>
             </tr>
 
@@ -24,6 +24,16 @@
             <tr>
               <td>元請け業者</td>
               <td><%= @construction_site.prime_contractor %></td>
+            </tr>
+
+            <tr>
+              <td>現場職長</td>
+              <td><%= @construction_site.foremen %></td>
+            </tr>
+
+            <tr>
+              <td>現在の工程</td>
+              <td><%= @construction_site.process %></td>
             </tr>
 
             <tr>
