@@ -9,7 +9,6 @@ class Admins::AttendanceRecordsController < ApplicationController
 		@attendance_record = AttendanceRecord.find(params[:id])
 	end
 
-
 	private
   		def attendance_record_params
     		params.require(:attendance_record).permit(

@@ -1,0 +1,29 @@
+
+<%= render "shared/admin_header" %>
+
+<div class = "container">
+
+	<div class= "row">
+
+  		<div class="col-xs-6">
+
+  			<div class="title">車両名変更</div>
+
+			<%= form_for @car, url: admins_car_path do |f| %>
+
+			<div class="field form-group">
+        		<%= f.label :name, "車両名" %>
+        		<%= f.text_field :name, class: "form-control" %>
+      		</div>
+
+      		<div class="btn1">
+      			<%= f.submit "車両名変更", class: "btn btn-primary" %>
+      		</div>
+
+      		<% end %>
+
+  		</div>
+
+  	</div>
+
+</div>

@@ -1,0 +1,47 @@
+
+<%= render "shared/admin_header" %>
+
+<div class = "container">
+
+  <div class = "row">
+
+  	<div class="col-xs-7">
+
+  		<div class="title">配車 予約</div>
+
+  		<%= form_for @reservation, url: admins_reservations_path, method: :post do |f| %>
+
+      	<div>
+        	<%= f.label :construction_site, "現場名" %>
+        	<%= f.collection_select(:construction_site_id, ConstructionSite.all, :id, :name,:prompt => "選択してください") %>
+      	</div>
+
+      	<div>
+        	<%= f.label :car, "車種選択" %>
+        	<%= f.collection_select(:car_id, Car.all, :id, :name,:prompt => "選択してください") %>
+      	</div>
+
+
+      	<div>
+       		<%= f.label :時間 %>
+      		<%= f.datetime_select :start_time, minute_step: 30 %>
+        	<%= "〜" %>
+        	<%= f.datetime_select :finish_at, minute_step: 30 %>
+      	</div>
+
+
+      	<div>
+        	<%= f.label :作業内容 %>
+        	<%= f.text_field :content %>
+      	</div>
+
+
+  		<div class = "btn1"><%= f.submit "予約", class: "btn btn-primary" %></div>
+
+  		<% end %>
+
+  	</div>
+
+  </div>
+
+</div>
