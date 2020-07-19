@@ -31,7 +31,7 @@ Rails.application.routes.draw do
       end
     end
   	resources :machines, only:[:index, :create, :update]
-    resources :reservations, only:[:index, :new, :create, :show]
+    resources :reservations, only:[:index, :new, :create, :show, :destroy]
     resources :cars, only:[:index, :create, :edit, :update]
   	root 'homes#top'
   end

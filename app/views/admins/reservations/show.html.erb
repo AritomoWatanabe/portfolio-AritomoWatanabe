@@ -9,24 +9,32 @@
 
         <div class="title">配車予約 詳細</div>
 
-	<table class="table">
-      <tbody>
-        <tr>
-         	<th>現場名</th>
-        	<td><%= @reservation.construction_site.name %></td>
-       	</tr>
+          <table class="table">
+            <tbody>
+              <tr>
+         	      <th>現場名</th>
+                <td><%= @reservation.construction_site.name %></td>
+       	      </tr>
 
-       	<tr>
-       		<th>車種</th>
-       		<td><%= @reservation.car.name %></td>
-       	</tr>
+       	      <tr>
+       	        <th>車種</th>
+                <td><%= @reservation.car.name %></td>
+       	      </tr>
 
-       	<tr>
-         	<th>時間</th>
-         	<td><%= @reservation.start_time.strftime("%Y-%m-%d %H:%M") %> 〜 <%= @reservation.finish_at.strftime("%Y-%m-%d %H:%M") %></td>
-       	</tr>
+       	      <tr>
+                <th>時間</th>
+                <td><%= @reservation.start_time.strftime("%Y-%m-%d %H:%M") %> 〜 <%= @reservation.finish_at.strftime("%Y-%m-%d %H:%M") %></td>
+       	      </tr>
 
-    </tbody>
-  </table>
+            </tbody>
+          </table>
+
+          <div class="btn1"><%= link_to "予約を削除する", admins_reservation_path(@reservation), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger" %></div>
+
+      </div>
+
+  </div>
 
 </div>
+
+
