@@ -4,40 +4,34 @@
 <div class = "container">
 
   <div class = "row">
-    <div class = "col-xs-12">
-      <h2>ログイン</h2>
-    </div>
-  </div>
+
+    <div class="title">ログイン</div>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <div class = "row">
-        <div class = "field">
-            <div class = "col-xs-2">
-              <%= f.label :email %>
-            </div>
-            <div class = "col-xs-6">
-                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-            </div>
-        </div>
-  </div>
+  <table class="table" id="none-border">
 
-  <div class = "row">
-        <div class = "field">
-            <div class = "col-xs-2">
-              <%= f.label :password %>
-            </div>
-            <div class = "col-xs-6">
-                <%= f.password_field :password, autocomplete: "current-password" %>
-            </div>
-        </div>
-  </div>
+    <tbody>
 
-  <div class = "row">
-    <div class = "actions">
-      <%= f.submit "Log in" %>
-    </div>
-      <% end %>
+      <tr>
+        <td><%= f.label :メールアドレス %></td>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+      </tr>
+
+      <tr>
+        <td><%= f.label :パスワード %></td>
+        <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+      </tr>
+
+    </tbody>
+
+  </table>
+
+  <div class="btn1"><%= f.submit "ログイン", class: "btn btn-success btn-lg" %></div>
+
+  <% end %>
+
+
   </div>
 
 </div>

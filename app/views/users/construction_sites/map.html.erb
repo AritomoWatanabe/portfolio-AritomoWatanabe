@@ -13,10 +13,10 @@
 <h2>現場地図</h2>
 
 <!-- 地名入力用のinputを追加 -->
-<input id="address" type="textbox" value="<%= @construction_site.address %>">
+<input id="address" type="textbox" size="50" value="<%= @construction_site.address %>">
 
 <!-- buttonをクリックしたらcodeAddressを実行　-->
-<input type="button" value="クリックをお願いします" onclick="codeAddress()">
+<input type="button" value="クリックをお願いします" onclick="codeAddress()" class="btn-square">
 <div id='map'></div>
 
 
