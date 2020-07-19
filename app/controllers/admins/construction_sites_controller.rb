@@ -1,7 +1,7 @@
 class Admins::ConstructionSitesController < ApplicationController
 
 	def index
-		@construction_sites = ConstructionSite.all.order(created_at: :desc)
+		@construction_sites = ConstructionSite.search(params[:search]).order(created_at: :desc)
 	end
 
 	def new
