@@ -5,8 +5,7 @@
 <div class = "container">
 
   <div class = "row">
-      <h2>従業員 新規登録</h2>
-  </div>
+      <div class="title">従業員 新規登録</div>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
@@ -15,7 +14,7 @@
     <tbody>
 
       <tr>
-        <td>名前</td>
+        <td><%= f.label :名前 %></td>
         <td><%= f.label :姓 %>
           <%= f.text_field :family_name %>
         </td>
@@ -26,7 +25,7 @@
       </tr>
 
       <tr>
-        <td>フリガナ</td>
+        <td><%= f.label :フリガナ %></td>
         <td><%= f.label :ｾｲ %>
           <%= f.text_field :family_name_kana %>
         </td>
@@ -38,49 +37,43 @@
 
        <tr>
         <td><%= f.label :メールアドレス %></td>
-        <td><%= f.email_field :email %></td>
-        <td></td>
+        <td>&emsp;&ensp;<%= f.email_field :email %></td>
         <td></td>
       </tr>
 
       <tr>
         <td><%= f.label :住所 %></td>
-        <td><%= f.text_field :address %></td>
-        <td></td>
+        <td>&emsp;&ensp;<%= f.text_field :address %></td>
         <td></td>
       </tr>
 
       <tr>
         <td><%= f.label :電話番号 %> </td>
-        <td><%= f.text_field :telephone_number %></td>
-        <td></td>
+        <td>&emsp;&ensp;<%= f.text_field :telephone_number %></td>
         <td></td>
       </tr>
 
       <tr>
         <td><%= f.label :パスワード %></td>
-        <td><%= f.password_field :password %></td>
-        <td></td>
+        <td>&emsp;&ensp;<%= f.password_field :password %></td>
         <td></td>
       </tr>
 
       <tr>
         <td><%= f.label :パスワード（確認用） %></td>
-        <td><%= f.password_field :password_confirmation %></td>
-        <td></td>
+        <td>&emsp;&ensp;<%= f.password_field :password_confirmation %></td>
         <td></td>
       </tr>
 
-      <tr>
-        <td> <%= f.submit "新規登録", class: "btn btn-success btn-lg col-lg-offset-12" %></td>
-        <td></td>
-        <td></td>
-      </tr>
     </tbody>
 
   </table>
 
+  <div class="btn1"><%= f.submit "新規登録", class: "btn btn-success btn-lg" %></div>
+
   <% end %>
+
+</div>
 
 </div>
 

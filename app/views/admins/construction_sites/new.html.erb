@@ -37,7 +37,7 @@
 
       <tr>
         <td><%= f.label :工期 %></td>
-        <td><%= raw sprintf(f.date_select(:period, start_year: Time.now.year,end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %>&emsp;〜&emsp;<%= raw sprintf(f.date_select(:period_end, start_year: Time.now.year,end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %></td>
+        <td><%= raw sprintf(f.date_select(:period, start_year: Time.now.year,end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %>&emsp;から<br><%= raw sprintf(f.date_select(:period_end, start_year: Time.now.year,end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %>&emsp;まで</td>
       </tr>
 
       <tr>

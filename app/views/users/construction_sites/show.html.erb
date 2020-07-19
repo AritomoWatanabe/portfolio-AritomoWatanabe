@@ -18,7 +18,7 @@
 
             <tr>
               <td>現場住所</td>
-              <td><%= @construction_site.address %></td>
+              <td><%= @construction_site.address %><%= link_to "MAP",map_users_construction_site_path(@construction_site.id),class: 'btn btn-primary btn-sm' %></td>
             </tr>
 
             <tr>
@@ -52,7 +52,7 @@
 
         <div class="btn1"><%= link_to "編集する",edit_users_construction_site_path, class: 'btn btn-primary' %></div>
 
-        <div class="btn2"><%= link_to "MAP",map_users_construction_site_path(@construction_site.id),class: 'btn btn-primary' %></div>
+        <div class="btn2"></div>
 
       </div>
 
