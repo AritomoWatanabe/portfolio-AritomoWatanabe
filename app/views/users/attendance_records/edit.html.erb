@@ -5,7 +5,7 @@
 
 	<div class= "row">
 
-  		<div class="col-xs-9">
+  		<div class="col-xs-6">
 
         <div class="title">打刻編集</div>
 
@@ -18,15 +18,14 @@
           	</tr>
 
       		  <tr>
-              <th><%= "出勤" %></th>
-              <td><%= f.datetime_select :start_time, minute_step: 15 %></td>
-              <th><%= "〜　退勤" %></th>
-        		  <td><%= f.datetime_select :finish_at, minute_step: 15 %></td>
+              <th><%= "出勤・退勤" %></th>
+              <td><%= f.datetime_select :start_time, minute_step: 15 %><br>
+                  <%= f.datetime_select :finish_at, minute_step: 15 %></td>
       		  </tr>
 
           </table>
 
-      		  <%= f.submit "編集する", class: 'btn btn-primary col-lg-offset-12'  %>
+      		  <%= f.submit "編集する", class: 'btn btn-primary col-lg-offset-12' %>
 
       		<% end %>
 

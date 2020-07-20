@@ -1,0 +1,36 @@
+
+ja:
+  activerecord:
+    attributes:
+      construction_site:
+        name: 現場名
+        address: 現場住所
+        prime_contractor: 元請け業者
+        foremen: 現場職長
+        caution: その他（注意事項）
+
+      machine:
+        construction_site: 現場名
+        name: 機械・機材名
+
+      car:
+        name: 車両名
+
+      reservation:
+        construction_site: 現場名
+        car: 車種
+        content: 作業内容
+
+      user:
+        email: メールアドレス
+        family_name: 苗字
+        first_name: 名前
+        family_name_kana: ミョウジ
+        first_name_kana: ナマエ
+        address: 住所
+        telephone_number: 電話番号
+        encrypted_password: パスワード
+
+      daily_report:
+        content: 作業内容
+        company_people: 自社作業員名

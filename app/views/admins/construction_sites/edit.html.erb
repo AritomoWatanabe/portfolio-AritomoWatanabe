@@ -3,26 +3,39 @@
 
 <div class = "container">
 
+  <% if @construction_site.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading"><%= pluralize(@construction_site.errors.count, "error") %></h4>
+      <p><%= pluralize(@construction_site.errors.count, "error") %> prohibited this object from being saved: not successfully</p>
+      <hr>
+        <p class="mb-0">
+        <% @construction_site.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+        </p>
+    </div>
+  <% end %>
+
   <div class = "row">
 
-  <div class="col-xs-10">
+  <div class="col-xs-7">
 
     <div class="title">現場 情報編集</div>
 
   <%= form_for @construction_site, url: admins_construction_site_path(@construction_site.id) do |f| %>
 
-  <table class="table" id="none-border">
+  <table class="table">
 
     <tbody>
 
       <tr>
         <td><%= f.label :現場名 %></td>
-        <td><%= f.text_field :name %></td>
+        <td><%= f.text_field :name, :size => "43*30" %></td>
       </tr>
 
       <tr>
         <td><%= f.label :現場住所 %></td>
-        <td><%= f.text_field :address %></td>
+        <td><%= f.text_field :address, :size => "43*30" %></td>
       </tr>
 
        <tr>
@@ -42,11 +55,11 @@
 
       <tr>
         <td><%= f.label :工期 %></td>
-        <td><%= raw sprintf(f.date_select(:period,prefix:'birthday', start_year: Time.now.year,end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %>&emsp;〜&emsp;<%= raw sprintf(f.date_select(:period_end, start_year: Time.now.year,end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %></td>
+        <td><%= raw sprintf(f.date_select(:period,prefix:'birthday', start_year: Time.now.year,end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %>&emsp;〜<br><%= raw sprintf(f.date_select(:period_end, start_year: Time.now.year,end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %></td>
       </tr>
 
       <tr>
-        <td><%= f.label :その他 %></td>
+        <td><%= f.label :その他（注意事項） %></td>
         <td><%= f.text_field :caution %></td>
       </tr>
 

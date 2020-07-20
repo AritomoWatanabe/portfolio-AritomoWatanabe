@@ -3,6 +3,19 @@
 
 <div class = "container">
 
+  <% if @construction_site.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading"><%= pluralize(@construction_site.errors.count, "error") %></h4>
+      <p><%= pluralize(@construction_site.errors.count, "error") %> prohibited this object from being saved: not successfully</p>
+      <hr>
+        <p class="mb-0">
+        <% @construction_site.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+        </p>
+    </div>
+  <% end %>
+
   <div class = "row">
 
   <div class="col-xs-10">
@@ -46,7 +59,7 @@
       </tr>
 
       <tr>
-        <td><%= f.label :その他 %></td>
+        <td><%= f.label :その他（注意事項） %></td>
         <td><%= f.text_field :caution %></td>
       </tr>
 

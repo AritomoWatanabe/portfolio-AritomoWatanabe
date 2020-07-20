@@ -1,4 +1,5 @@
 class Users::PhotosController < ApplicationController
+	before_action :authenticate_user!
 
 	def new
 		@photo = Photo.new
@@ -7,6 +8,7 @@ class Users::PhotosController < ApplicationController
 	def create
 		@photo = Photo.new(photo_params)
 		if @photo.save
+			flash[:notice] = "現場写真を投稿しました！"
 			redirect_to users_construction_sites_path
 		else
 			render :new

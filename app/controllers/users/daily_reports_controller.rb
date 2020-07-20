@@ -1,4 +1,5 @@
 class Users::DailyReportsController < ApplicationController
+	before_action :authenticate_user!
 
 	def calendar
 		@construction_site = ConstructionSite.find(params[:id])
@@ -7,8 +8,15 @@ class Users::DailyReportsController < ApplicationController
 
 	def create
 		@daily_report = DailyReport.new(daily_report_params)
-		@daily_report.save
+		if @daily_report.save
+			flash[:notice] = "日報を作成しました！"
 			redirect_to users_daily_report_path(@daily_report.id)
+		else
+			@attendance_record = AttendanceRecord.new
+			@daily_report = DailyReport.new
+			flash[:danger] = '打刻/日報作成に失敗しました。再度入力をお願いします。'
+			render template: 'users/homes/top'
+		end
 	end
 
 	def show
@@ -23,6 +31,7 @@ class Users::DailyReportsController < ApplicationController
 	def update
 		@daily_report = DailyReport.find(params[:id])
 		if @daily_report.update(daily_report_params)
+			flash[:notice] = "日報を編集しました！"
 			redirect_to users_daily_report_path(@daily_report.id)
 		else
 			render action: :edit

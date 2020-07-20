@@ -4,6 +4,19 @@
 
 <div class = "container">
 
+	<% if @car.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading"><%= pluralize(@car.errors.count, "error") %></h4>
+      <p><%= pluralize(@car.errors.count, "error") %> prohibited this object from being saved: not successfully</p>
+      <hr>
+        <p class="mb-0">
+        <% @car.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+        </p>
+    </div>
+  	<% end %>
+
 	<div class= "row">
 
   		<div class="col-xs-6">

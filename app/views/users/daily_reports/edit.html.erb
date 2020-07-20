@@ -3,6 +3,19 @@
 
 <div class = "container">
 
+  <% if @daily_report.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading"><%= pluralize(@daily_report.errors.count, "error") %></h4>
+      <p><%= pluralize(@daily_report.errors.count, "error") %> prohibited this object from being saved: not successfully</p>
+      <hr>
+        <p class="mb-0">
+        <% @daily_report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+        </p>
+    </div>
+  <% end %>
+
   <div class="title">日報編集</div>
 
 	<div class= "row">
@@ -15,22 +28,22 @@
           <%= form_for @daily_report, url: users_daily_report_path do |f| %>
 
             <tr>
-        		  <td>日付</td>
+        		  <th>日付</th>
               <td><%= raw sprintf(f.date_select(:start_time	, start_year: Time.now.year, end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %></td>
             </tr>
 
             <tr>
-        		  <td>現場名</td>
+        		  <th>現場名</th>
         		  <td><%= f.collection_select(:construction_site_id, ConstructionSite.all , :id, :name,:prompt => "選択してください") %></td>
             </tr>
 
             <tr>
-              <td>作業内容</td>
+              <th>作業内容</th>
           		<td><%= f.text_field :content %></td>
             </tr>
 
             <tr>
-              <td>その他</td>
+              <th>その他</th>
               <td><%= f.text_field :etcetera %></td>
             </tr>
 
@@ -45,52 +58,52 @@
           <tbody>
 
             <tr>
-        		  <td>自社作業員名</td>
+        		  <th>自社作業員名</th>
               <td><%= f.text_field :company_people %></td>
             </tr>
 
             <tr>
-              <td>手元工（人）</td>
+              <th>手元工（人）</th>
               <td><%= f.select :care_people, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
             </tr>
 
             <tr>
-              <td>とび工（人）</td>
+              <th>とび工（人）</th>
               <td><%= f.select :scaffold_people, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
             </tr>
 
             <tr>
-              <td>内装工（人）</td>
+              <th>内装工（人）</th>
               <td><%= f.select :interior_people, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
             </tr>
 
             <tr>
-              <td>警備員（人）</td>
+              <th>警備員（人）</th>
               <td><%= f.select :watchman, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
             </tr>
 
             <tr>
-              <td>ゴミ4t車（台）</td>
+              <th>ゴミ4t車（台）</th>
               <td><%= f.select :garbage_collection_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
             </tr>
 
             <tr>
-              <td>ゴミ大型車（台）</td>
+              <th>ゴミ大型車（台）</th>
               <td><%= f.select :big_garbage_collection_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
             </tr>
 
             <tr>
-              <td>ガラ8t車（台）</td>
+              <th>ガラ8t車（台）</th>
               <td><%= f.select :concrete_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
             </tr>
 
             <tr>
-              <td>ガラ大型車（台）</td>
+              <th>ガラ大型車（台）</th>
               <td><%= f.select :big_concrete_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
             </tr>
 
             <tr>
-              <td>埋め戻し残土大型車（台）</td>
+              <th>埋め戻し残土大型車（台）</th>
               <td><%= f.select :soil_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
             </tr>
 

@@ -12,12 +12,12 @@
         <table class="table">
           <tbody>
             <tr>
-              <td>現場名</td>
+              <th>現場名</th>
               <td><%= @attendance_record.construction_site.name %></td>
             </tr>
 
             <tr>
-              <td>打刻時間</td>
+              <th>打刻時間</th>
               <td><%= @attendance_record.start_time.strftime("%Y-%m-%d %H:%M") %> 〜 <%= @attendance_record.finish_at.strftime("%Y-%m-%d %H:%M") %></td>
             </tr>
 
