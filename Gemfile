@@ -72,7 +72,7 @@ gem "refile-mini_magick"
 
 gem "simple_calendar", "~> 2.0"
 
-gem 'kaminari', '~> 0.17.0'
+gem 'kaminari', '~> 1.2.1'
 
 gem 'rails-i18n'
 
