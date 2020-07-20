@@ -6,6 +6,14 @@ class ConstructionSite < ApplicationRecord
 	has_many :photos
 	has_many :reservations
 
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :prime_contractor, presence: true
+  validates :foremen, presence: true
+  validates :period, presence: true
+  validates :period_end, presence: true
+  validates :caution, presence: true
+
 	enum process:{
     着工前: 0,
     着工中: 1,

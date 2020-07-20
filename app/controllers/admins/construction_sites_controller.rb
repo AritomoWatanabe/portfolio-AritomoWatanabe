@@ -1,4 +1,5 @@
 class Admins::ConstructionSitesController < ApplicationController
+	before_action :authenticate_admin!
 
 	def index
 		@construction_sites = ConstructionSite.search(params[:search]).order(created_at: :desc)
@@ -11,9 +12,10 @@ class Admins::ConstructionSitesController < ApplicationController
 	def create
 		@construction_site = ConstructionSite.new(construction_site_params)
 		if @construction_site.save
+			flash[:notice] = "新しい現場を追加しました！"
 			redirect_to admins_construction_site_path(@construction_site.id)
 		else
-			redirect_to admins_path
+			render action: :new
 		end
 	end
 
@@ -29,6 +31,7 @@ class Admins::ConstructionSitesController < ApplicationController
 	def update
 		@construction_site = ConstructionSite.find(params[:id])
     	if @construction_site.update(construction_site_params)
+    		flash[:notice] = "現場情報を編集しました！"
       		redirect_to admins_construction_site_path(@construction_site.id)
     	else
       		render action: :edit

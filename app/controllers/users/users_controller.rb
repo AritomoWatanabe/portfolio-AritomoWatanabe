@@ -1,4 +1,5 @@
 class Users::UsersController < ApplicationController
+  before_action :authenticate_user!
 
 	def show
 		@user = User.find(params[:id])
@@ -11,6 +12,7 @@ class Users::UsersController < ApplicationController
 	def update
     @user = User.find(params[:id])
     if @user.update(user_params)
+      flash[:notice] = "情報を変更しました！"
       redirect_to users_user_path(current_user.id)
     else
       render :edit

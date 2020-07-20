@@ -1,4 +1,5 @@
 class Users::ConstructionSitesController < ApplicationController
+	before_action :authenticate_user!
 
 	def index
 		@construction_sites = ConstructionSite.search(params[:search]).order(created_at: :desc)
@@ -20,6 +21,7 @@ class Users::ConstructionSitesController < ApplicationController
 	def update
 		@construction_site = ConstructionSite.find(params[:id])
     	if @construction_site.update(construction_site_params)
+    		flash[:notice] = "現場情報を編集しました！"
       		redirect_to users_construction_site_path(@construction_site.id)
     	else
       		render action: :edit

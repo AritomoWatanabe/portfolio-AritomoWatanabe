@@ -12,38 +12,38 @@
         <table class="table">
           <tbody>
             <tr>
-              <td>現場名</td>
+              <th>現場名</th>
               <td><%= @construction_site.name %></td>
             </tr>
 
             <tr>
-              <td>現場住所</td>
+              <th>現場住所</th>
               <td><%= @construction_site.address %><%= link_to "MAP",map_users_construction_site_path(@construction_site.id),class: 'btn btn-primary btn-sm' %></td>
             </tr>
 
             <tr>
-              <td>元請け業者</td>
+              <th>元請け業者</th>
               <td><%= @construction_site.prime_contractor %></td>
             </tr>
 
             <tr>
-              <td>現場職長</td>
+              <th>現場職長</th>
               <td><%= @construction_site.foremen %></td>
             </tr>
 
             <tr>
-              <td>現在の工程</td>
+              <th>現在の工程</th>
               <td><%= @construction_site.process %></td>
             </tr>
 
 
             <tr>
-              <td>工期</td>
+              <th>工期</th>
               <td><%= @construction_site.period.strftime("%Y-%m-%d") %> 〜 <%= @construction_site.period_end.strftime("%Y-%m-%d") %>（予定）</td>
             </tr>
 
             <tr>
-              <td>その他</td>
+              <th>その他（注意事項）</th>
               <td><%= @construction_site.caution %></td>
             </tr>
 

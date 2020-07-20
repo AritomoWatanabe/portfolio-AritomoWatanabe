@@ -24,6 +24,17 @@
 　　top: 0;
 }
 
+/* 打刻・日報のバリデーション代わり */
+.notification1{
+	color: red;
+	font-size: 15px;
+}
+
+.flash{
+	color: #00CC66;
+	font-size: 15px;
+}
+
 .sitename{
 	color: white;
 	background-color: #006699;

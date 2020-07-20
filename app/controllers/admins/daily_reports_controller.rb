@@ -1,4 +1,5 @@
 class Admins::DailyReportsController < ApplicationController
+    before_action :authenticate_admin!
 
 	def calendar
 		@construction_site = ConstructionSite.find(params[:id])

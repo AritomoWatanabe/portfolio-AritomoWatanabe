@@ -13,22 +13,22 @@
           <tbody>
 
             <tr>
-              <td>日付</td>
+              <th>日付</th>
               <td><%= @daily_report.start_time.strftime("%Y-%m-%d") %></td>
             </tr>
 
             <tr>
-              <td>現場名</td>
+              <th>現場名</th>
               <td><%= @daily_report.construction_site.name %></td>
             </tr>
 
             <tr>
-              <td>作業内容</td>
+              <th>作業内容</th>
               <td><%= @daily_report.content %></td>
             </tr>
 
             <tr>
-              <td>その他</td>
+              <th>その他</th>
               <td><%= @daily_report.etcetera %></td>
             </tr>
 
@@ -45,52 +45,52 @@
           <tbody>
 
           <tr>
-            <td>自社</td>
+            <th>自社</th>
             <td><%= @daily_report.company_people %></td>
           </tr>
 
           <tr>
-            <td>手元工</td>
+            <th>手元工</th>
             <td><%= @daily_report.care_people %>人</td>
           </tr>
 
           <tr>
-            <td>とび工</td>
+            <th>とび工</th>
             <td><%= @daily_report.scaffold_people %>人</td>
           </tr>
 
           <tr>
-            <td>内装工</td>
+            <th>内装工</th>
             <td><%= @daily_report.interior_people %>人</td>
           </tr>
 
           <tr>
-            <td>警備員</td>
+            <th>警備員</th>
             <td><%= @daily_report.watchman %>人</td>
           </tr>
 
           <tr>
-            <td>ゴミ4t車</td>
+            <th>ゴミ4t車</th>
             <td><%= @daily_report.garbage_collection_car %>台</td>
           </tr>
 
           <tr>
-            <td>ゴミ大型車</td>
+            <th>ゴミ大型車</th>
             <td><%= @daily_report.big_garbage_collection_car %>台</td>
           </tr>
 
           <tr>
-            <td>ガラ8t車</td>
+            <th>ガラ8t車</th>
             <td><%= @daily_report.concrete_car %>台</td>
           </tr>
 
           <tr>
-            <td>ガラ大型車</td>
+            <th>ガラ大型車</th>
             <td><%= @daily_report.big_concrete_car %>台</td>
           </tr>
 
           <tr>
-            <td>埋め戻し残土大型車</td>
+            <th>埋め戻し残土大型車</th>
             <td><%= @daily_report.soil_car %>台</td>
           </tr>
 

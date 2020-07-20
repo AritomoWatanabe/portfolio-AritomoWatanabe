@@ -1,4 +1,5 @@
 class Admins::AttendanceRecordsController < ApplicationController
+	before_action :authenticate_admin!
 
 	def calendar
 		@user = User.find(params[:id])

@@ -3,6 +3,19 @@
 
 <div class = "container">
 
+	<% if @machine.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading"><%= pluralize(@machine.errors.count, "error") %></h4>
+      <p><%= pluralize(@machine.errors.count, "error") %> prohibited this object from being saved: not successfully</p>
+      <hr>
+        <p class="mb-0">
+        <% @machine.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+        </p>
+    </div>
+  	<% end %>
+
 	<div class= "row">
 
   		<div class="col-xs-6">
@@ -36,7 +49,7 @@
 
     		<div class="title">機械・機材一覧</div>
 
-		<table style="margin-top:15px">
+		<table class="table table-hover">
 
 	    	<thead class = "thead-light">
 	    		<tr class="active">

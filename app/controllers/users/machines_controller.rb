@@ -1,4 +1,5 @@
 class Users::MachinesController < ApplicationController
+	before_action :authenticate_user!
 
 	def index
 		@machines = Machine.all.page(params[:page]).per(10)
@@ -7,6 +8,7 @@ class Users::MachinesController < ApplicationController
 	def update
 		@machine = Machine.find(params[:id])
     	if @machine.update(machine_params)
+    		flash[:notice] = "機械・機材情報を編集しました！"
       		redirect_to	users_machines_path
     	else
       		redirect_to users_root_path

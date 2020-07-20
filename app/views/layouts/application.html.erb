@@ -15,6 +15,9 @@
   </head>
 
   <body>
+    <% if flash[:notice] %>
+      <p class = "flash">&emsp;&emsp;<%= flash[:notice] %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

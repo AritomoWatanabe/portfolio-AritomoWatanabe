@@ -1,4 +1,5 @@
 class Admins::HomesController < ApplicationController
+	before_action :authenticate_admin!
 
 	def top
 		@photos = Photo.all.page(params[:page]).per(3).reverse_order

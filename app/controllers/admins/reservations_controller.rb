@@ -1,4 +1,5 @@
 class Admins::ReservationsController < ApplicationController
+	before_action :authenticate_admin!
 
 	def index
 		@reservations = Reservation.all
@@ -11,9 +12,10 @@ class Admins::ReservationsController < ApplicationController
 	def create
 		@reservation = Reservation.new(reservation_params)
 		if @reservation.save
+			flash[:notice] = "配車予約が完了しました！"
 			redirect_to admins_reservations_path
 		else
-			redirect_to new_admins_reservation_path
+			render action: :new
 		end
 	end
 
@@ -24,6 +26,7 @@ class Admins::ReservationsController < ApplicationController
 	def destroy
 		@reservation = Reservation.find(params[:id])
 		@reservation.destroy
+		flash[:notice] = "配車予約を削除しました！"
 		redirect_to admins_reservations_path
 	end
 
