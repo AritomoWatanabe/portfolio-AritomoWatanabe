@@ -14,11 +14,16 @@
             <div class="col-xs-4">
                 <div class="img-thumbnail">
 				    <%= attachment_image_tag photo, :image, :fill, 300, 250 %>
+                    <!-- <div class="caption">
+                        <%= photo.construction_site.name %>
+                        <%= photo.explanation %>
+                    </div> -->
                 </div>
             </div>
 
             <% end %>
 
+            <div class = "paginate"><%= paginate @photos %></div>
 
     	</div>
 

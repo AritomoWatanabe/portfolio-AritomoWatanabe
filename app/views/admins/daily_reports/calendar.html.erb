@@ -19,7 +19,7 @@
 
 			<% daily_reports.each do |daily_report| %>
 				<div>
-					<%= link_to daily_report.construction_site.name, admins_daily_report_path(daily_report.id) %>
+					<%= link_to daily_report.content, admins_daily_report_path(daily_report.id) %>
 				</div>
 			<% end %>
 
