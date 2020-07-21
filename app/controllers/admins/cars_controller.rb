@@ -3,7 +3,7 @@ class Admins::CarsController < ApplicationController
 
 	def index
 		@car = Car.new
-		@cars = Car.all
+		@cars = Car.all.page(params[:page]).per(10)
 	end
 
 	def create

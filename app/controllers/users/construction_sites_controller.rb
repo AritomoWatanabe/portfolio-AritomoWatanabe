@@ -7,7 +7,7 @@ class Users::ConstructionSitesController < ApplicationController
 
 	def show
 		@construction_site = ConstructionSite.find(params[:id])
-		@photos = Photo.all
+		@photos = Photo.all.page(params[:page]).per(6).reverse_order
 	end
 
 	def map
