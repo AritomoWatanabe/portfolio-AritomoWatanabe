@@ -2,7 +2,7 @@ class Users::MachinesController < ApplicationController
  before_action :authenticate_user!
 
 	def index
-		@machines = Machine.all.page(params[:page]).per(10)
+		@machines = Machine.all.page(params[:page]).per(7).search(params[:search]).order(created_at: :desc)
 	end
 
 	def update

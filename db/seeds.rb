@@ -200,11 +200,73 @@ DailyReport.create(construction_site_id: "5",
 					care_people: "2"
 	)
 
-# Photo.create(
-# 	construction_site_id: "2",
-#     image_id: open("./public/images/construction_site1.jpg"),
-#     explanation: "解体を始めました"
-# 	)
+
+Photo.create(
+	construction_site_id: "2",
+    image: open("./public/images/construction_site1.jpg"),
+    explanation: "上屋解体を始めました"
+	)
+Photo.create(
+	construction_site_id: "2",
+    image: open("./public/images/construction_site2.jpg"),
+    explanation: "上屋解体を進めています"
+	)
+Photo.create(
+	construction_site_id: "2",
+    image: open("./public/images/construction_site0.jpg"),
+    explanation: "来週には上屋はなくなると思います"
+	)
+Photo.create(
+	construction_site_id: "6",
+    image: open("./public/images/construction_site7.jpg"),
+    explanation: "A型バリケードを設置しました"
+	)
+Photo.create(
+	construction_site_id: "6",
+    image: open("./public/images/construction_site10.jpg"),
+    explanation: "B型フェンスも設置しました"
+	)
+Photo.create(
+	construction_site_id: "6",
+    image: open("./public/images/construction_site8.jpg"),
+    explanation: "校庭に鉄板を敷きました"
+	)
+Photo.create(
+	construction_site_id: "5",
+    image: open("./public/images/construction_site11.jpg"),
+    explanation: "地中工事中です"
+	)
+Photo.create(
+	construction_site_id: "6",
+    image: open("./public/images/construction_site6.jpg"),
+    explanation: "発電機を設置しました"
+	)
+Photo.create(
+	construction_site_id: "5",
+    image: open("./public/images/construction_site12.jpg"),
+    explanation: "掘削してます"
+	)
+
+Photo.create(
+	construction_site_id: "6",
+    image: open("./public/images/construction_site3.jpg"),
+    explanation: "校庭の一部掘削です"
+	)
+Photo.create(
+	construction_site_id: "6",
+    image: open("./public/images/construction_site4.jpg"),
+    explanation: "明日に溜まった残土を搬出予定です"
+	)
+Photo.create(
+	construction_site_id: "4",
+    image: open("./public/images/construction_site13.jpg"),
+    explanation: "資材を揚重しました"
+	)
+Photo.create(
+	construction_site_id: "6",
+    image: open("./public/images/construction_site9.jpg"),
+    explanation: "ガラが少しでそうです"
+	)
 
 
 
