@@ -21,7 +21,8 @@ class Users::UsersController < ApplicationController
 
 
 
-	private　def user_params
+	private
+  def user_params
     	params.require(:user).permit(
         :family_name,
       	:first_name,

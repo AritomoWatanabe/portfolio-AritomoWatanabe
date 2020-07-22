@@ -2,7 +2,7 @@ class Admins::ConstructionSitesController < ApplicationController
  before_action :authenticate_admin!
 
 	def index
-		@construction_sites = ConstructionSite.search(params[:search]).order(created_at: :desc)
+		@construction_sites = ConstructionSite.page(params[:page]).per(10).search(params[:search]).order(created_at: :desc)
 	end
 
 	def new
@@ -21,7 +21,7 @@ class Admins::ConstructionSitesController < ApplicationController
 
 	def show
 		@construction_site = ConstructionSite.find(params[:id])
-		@photos = Photo.all.page(params[:page]).per(6).reverse_order
+		@photos = @construction_site.photos.page(params[:page]).per(6).reverse_order
 	end
 
 	def edit
