@@ -28,7 +28,7 @@ class ConstructionSite < ApplicationRecord
       else
         ConstructionSite.all
       end
-    end
+  end
 
 
 end

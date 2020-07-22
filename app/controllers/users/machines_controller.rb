@@ -1,5 +1,5 @@
 class Users::MachinesController < ApplicationController
-	before_action :authenticate_user!
+ before_action :authenticate_user!
 
 	def index
 		@machines = Machine.all.page(params[:page]).per(10)

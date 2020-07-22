@@ -1,5 +1,5 @@
 class Admins::ReservationsController < ApplicationController
-	before_action :authenticate_admin!
+ before_action :authenticate_admin!
 
 	def index
 		@reservations = Reservation.all
@@ -12,10 +12,10 @@ class Admins::ReservationsController < ApplicationController
 	def create
 		@reservation = Reservation.new(reservation_params)
 		if @reservation.save
-			flash[:notice] = "配車予約が完了しました！"
-			redirect_to admins_reservations_path
+		 flash[:notice] = "配車予約が完了しました！"
+		 redirect_to admins_reservations_path
 		else
-			render action: :new
+		 render action: :new
 		end
 	end
 

@@ -1,5 +1,5 @@
 class Admins::MachinesController < ApplicationController
-	before_action :authenticate_admin!
+ before_action :authenticate_admin!
 
 	def index
 		@machine = Machine.new
@@ -9,7 +9,7 @@ class Admins::MachinesController < ApplicationController
 	def create
 		@machine = Machine.new(machine_params)
 		if @machine.save
-			flash[:notice] = "新しい機械・機材を追加しました！"
+			flash[:notice] = "新しい機械 機材を追加しました！"
 			redirect_to admins_machines_path
     	else
     		@machines = Machine.all.page(params[:page]).per(10)
@@ -20,7 +20,7 @@ class Admins::MachinesController < ApplicationController
 	def update
 		@machine = Machine.find(params[:id])
     	if @machine.update(machine_params)
-    		flash[:notice] = "機械・機材情報を編集しました！"
+    		flash[:notice] = "機械 機材情報を編集しました！"
       		redirect_to admins_machines_path
     	else
       		redirect_to admins_root_path

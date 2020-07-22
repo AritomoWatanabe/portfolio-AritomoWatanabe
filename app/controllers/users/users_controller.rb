@@ -1,5 +1,5 @@
 class Users::UsersController < ApplicationController
-  before_action :authenticate_user!
+ before_action :authenticate_user!
 
 	def show
 		@user = User.find(params[:id])
@@ -21,18 +21,16 @@ class Users::UsersController < ApplicationController
 
 
 
-	private
-  		def user_params
+	private　def user_params
     	params.require(:user).permit(
-      	:family_name,
+        :family_name,
       	:first_name,
       	:family_name_kana,
       	:first_name_kana,
       	:email,
       	:address,
       	:telephone_number,
-      	:is_withdrawal
-    )
+      	:is_withdrawal)
   end
 
 end

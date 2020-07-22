@@ -1,5 +1,5 @@
 class Users::AttendanceRecordsController < ApplicationController
-	before_action :authenticate_user!
+ before_action :authenticate_user!
 
 	def create
 		@attendance_record = AttendanceRecord.new(attendance_record_params)
