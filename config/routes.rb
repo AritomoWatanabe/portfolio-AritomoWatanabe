@@ -20,12 +20,12 @@ Rails.application.routes.draw do
   	resources :users, only:[:index, :show, :edit, :update]
   	resources :construction_sites, only:[:index, :new, :create, :show, :edit, :update]
   	resources :photos, only:[:index]
-  	resources :attendance_records, only:[:index, :show]do
+  	resources :attendance_records, only:[:index, :show] do
       member do
         get :calendar, as: :calendar
       end
     end
-  	resources :daily_reports, only:[:show]do
+  	resources :daily_reports, only:[:show] do
       member do
         get :calendar, as: :calendar
       end
@@ -40,18 +40,18 @@ Rails.application.routes.draw do
 
 
   namespace :users do
-  	resources :attendance_records, only:[:index, :create, :show, :edit, :update]do
+  	resources :attendance_records, only:[:index, :create, :show, :edit, :update] do
       member do
         get :calendar, as: :calendar
       end
     end
-  	resources :daily_reports, only:[:create, :show, :edit, :update]do
+  	resources :daily_reports, only:[:create, :show, :edit, :update] do
       member do
         get :calendar, as: :calendar
       end
     end
   	resources :users, only:[:show, :edit, :update]
-  	resources :construction_sites, only:[:index, :show, :edit, :update]do
+  	resources :construction_sites, only:[:index, :show, :edit, :update] do
       member do
         get :map, as: :map
       end

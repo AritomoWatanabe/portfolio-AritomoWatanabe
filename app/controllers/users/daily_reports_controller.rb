@@ -1,5 +1,5 @@
 class Users::DailyReportsController < ApplicationController
-	before_action :authenticate_user!
+ before_action :authenticate_user!
 
 	def calendar
 		@construction_site = ConstructionSite.find(params[:id])

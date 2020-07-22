@@ -1,5 +1,5 @@
 class Admins::ConstructionSitesController < ApplicationController
-	before_action :authenticate_admin!
+ before_action :authenticate_admin!
 
 	def index
 		@construction_sites = ConstructionSite.search(params[:search]).order(created_at: :desc)
