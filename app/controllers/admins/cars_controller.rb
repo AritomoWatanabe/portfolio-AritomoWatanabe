@@ -25,7 +25,7 @@ class Admins::CarsController < ApplicationController
 	def update
 		@car = Car.find(params[:id])
     	if @car.update(car_params)
-    		flash[:notice] = "車両名前を変更しました！"
+    		flash[:notice] = "車両情報を変更しました！"
       		redirect_to admins_cars_path
     	else
       		render action: :edit

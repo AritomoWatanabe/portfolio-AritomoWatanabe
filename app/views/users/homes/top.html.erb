@@ -28,8 +28,8 @@
 
             <tr>
       	     <td><%= f.label :出勤・退勤 %></td>
-      	     <td><%= f.datetime_select :start_time, minute_step: 15 %><br>
-        		  <%= f.datetime_select :finish_at, minute_step: 15 %></td>
+      	     <td><%= f.datetime_select :start_time, {default: Date.today + 8.hour}, minute_step: 15 %><br>
+        		  <%= f.datetime_select :finish_at, {default: Date.today + 17.hour}, minute_step: 15 %></td>
             </tr>
 
           </tbody>
@@ -59,7 +59,7 @@
 
             <tr>
               <td><%= f.label :日付 %></td>
-        		  <td width="250"><%= raw sprintf(f.date_select(:start_time, start_year: Time.now.year, end_year: (Time.now.year + 10),default: Date.new, date_separator:'%s'),'年','月')+'日' %></td>
+        		  <td width="250"><%= raw sprintf(f.date_select(:start_time, start_year: Time.now.year, end_year: (Time.now.year + 10),default: Date.today, date_separator:'%s'),'年','月')+'日' %></td>
               <td></td>
             </tr>
 
