@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   namespace :admins do
   	resources :users, only:[:index, :show, :edit, :update]
   	resources :construction_sites, only:[:index, :new, :create, :show, :edit, :update]
-  	resources :photos, only:[:index]
+  	resources :photos, only:[:index, :show]
   	resources :attendance_records, only:[:index, :show] do
       member do
         get :calendar, as: :calendar
@@ -56,7 +56,7 @@ Rails.application.routes.draw do
         get :map, as: :map
       end
     end
-  	resources :photos, only:[:new, :create]
+  	resources :photos, only:[:new, :create, :show, :destroy]
   	resources :machines, only:[:index, :update]
     resources :reservations, only:[:index, :new, :create, :show]
   	root 'homes#top'

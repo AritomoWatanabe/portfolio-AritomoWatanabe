@@ -15,6 +15,20 @@ class Users::PhotosController < ApplicationController
 		end
 	end
 
+	def show
+		@photo = Photo.find(params[:id])
+	end
+
+	def destroy
+		@photo = Photo.find(params[:id])
+		if @photo.destroy
+			flash[:notice] = "現場写真を削除しました！！"
+			redirect_to users_construction_sites_path
+		else
+			render :show
+		end
+	end
+
 	private
   		def photo_params
     		params.require(:photo).permit(

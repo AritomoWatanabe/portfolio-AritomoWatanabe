@@ -71,10 +71,10 @@
 
 					<%= form_for car, url: admins_car_path(car.id) do |f| %>
 					<td>
-						<%= f.select :still_run, {走行可: 0, 走行不可: 1}, class: "form-control" %>
+						<%= f.select :still_run, {走行可: 1, 走行不可: 0}, class: "form-control" %>
 					</td>
 					<td><%= link_to "車両名変更", edit_admins_car_path(car.id),class: "btn btn-primary" %></td>
-					<td><%= f.submit '更新',class: 'btn btn-primary' %><% end %></td>
+					<td><%= f.submit '状態更新',class: 'btn btn-primary' %><% end %></td>
 
 				</tr>
 			</tbody>
