@@ -22,7 +22,7 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['portfolio'] %>
+  database: <%= ENV['portfolio-AritomoWatanabe'] %>
   adapter: mysql2
   encoding: utf8mb4
   charset: utf8mb4
