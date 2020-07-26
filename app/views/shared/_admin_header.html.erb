@@ -2,9 +2,19 @@
 
 <div class="navbar navbar-fixed-top" role="navigation">
 
-<div class="sitename">
+<div class="sitename_admin">
   <div class="container-fluid">
-    <h2>&emsp;&emsp;<%= link_to admins_root_path, :style=>"color:white;" do %>GENBA-MASTER<% end %></h2>
+    <div class="parent">
+      <h2>&emsp;&emsp;<%= link_to admins_root_path, :style=>"color:white;" do %>GENBA-MASTER<% end %></h2>
+        <% if admin_signed_in? %>
+        <% else %>
+          <div class="welcome">
+            <%= link_to new_user_session_path, :style=>"color:white;" do %>
+            <i class="fas fa-user">従業員の方はこちら</i>
+            <% end %>
+          </div>
+        <% end %>
+    </div>
   </div>
 </div>
 
@@ -50,29 +60,15 @@
             <% end %>
           </li>
 
-
-          <% else %>
-
-          <li>
-            <%= link_to new_admin_session_path, :style=>"color:black;" do %>
-            <i class="fas fa-sign-in-alt">ログイン</i>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to new_user_session_path, :style=>"color:black;" do %>
-            <i class="fas fa-user">従業員の方はこちら</i>
-            <% end %>
-          </li>
-
           <% end %>
+
         </ul>
       </div>
     </div>
-</div>
-
-</header>
+  </div>
 
 
 
 
-<footer class="navbar navbar-fixed-bottom"></footer>
+
+<footer class="navbar navbar-fixed-bottom", style="background-color: #000000;"></footer>

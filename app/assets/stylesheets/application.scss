@@ -24,6 +24,46 @@
 　　top: 0;
 }
 
+.sitename_admin{
+	color: white;
+	background-color: #000000;
+}
+.sitename_user{
+	color: white;
+	background-color: #006699;
+}
+.parent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-zero{
+	font-size: 24px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.welcome{
+	margin-top: 40px;
+	margin-right: 15px;
+}
+
+/* nav-barを固定した際に透明で見づらい為 */
+.navbar-header{
+	background-color: #FFFFFF;
+}
+.title{
+	font-size: 20px;
+	font-weight:  bold;
+	margin-bottom: 10px;
+}
+/* nav-barの文字が青くなった為 */
+.li{
+	color: black;
+}
+.un-login{
+	text-align: right;
+}
+
 /* 打刻・日報のバリデーション代わり */
 .notification1{
 	color: red;
@@ -35,27 +75,10 @@
 	font-size: 15px;
 }
 
-.sitename{
-	color: white;
-	background-color: #006699;
-}
-/* nav-barを固定した際に透明で見づらい為 */
-.navbar-header{
-	background-color: #FFFFFF;
-}
-.title{
-	font-size: 20px;
-	font-weight:  bold;
-	margin-bottom: 10px;
-}
-
-/* nav-barの文字が青くなった為 */
-.li{
-	color: black;
-}
 /* nav-barを固定した際に本文が隠れてしまった為 */
 body{
 	padding-top: 135px;
+	padding-bottom: 135px;
 }
 .container{
 	margin-bottom: 15px;
