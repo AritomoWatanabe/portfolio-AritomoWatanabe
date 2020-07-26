@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'admins/homes#top'
+
 #初期のdeviseの設定だとadminとuserで見分けがつけにくい為下記記述でわかりやすくする
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
