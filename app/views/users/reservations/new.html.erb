@@ -41,9 +41,9 @@
 
             <tr>
               <td><%= f.label :時間 %></td>
-              <td><%= f.datetime_select :start_time, minute_step: 30 %>
+              <td><%= f.datetime_select :start_time, {default: Date.today + 8.hour}, minute_step: 30 %>
                   <%= "〜" %>
-                  <%= f.datetime_select :finish_at, minute_step: 30 %></td>
+                  <%= f.datetime_select :finish_at, {default: Date.today + 17.hour}, minute_step: 30 %></td>
             </tr>
 
             <tr>
