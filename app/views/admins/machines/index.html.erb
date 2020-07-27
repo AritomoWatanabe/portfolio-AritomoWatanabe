@@ -51,7 +51,7 @@
 
     		<div class="searsh">
 				<%= form_tag(admins_machines_path,:method => 'get') do %>
-				<label>絞り込み検索</label>
+				<label>機械名 絞り込み検索</label>
   				<%= text_field_tag :search, params[:search] %>
   				<%= submit_tag '検索', :name => nil %>
   				<% end %>
