@@ -3,7 +3,7 @@ class Admins::CarsController < ApplicationController
 
 	def index
 		@car = Car.new
-		@cars = Car.all.page(params[:page]).per(10)
+		@cars = Car.all.page(params[:page]).per(10).order(created_at: :desc)
 	end
 
 	def create

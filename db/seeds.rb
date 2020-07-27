@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Admin.create(email: 'admin@admin', password: 'password')
+Admin.create(email: 'admin@admin', password: 'genbamaster')
 
 User.create(email: "admin.test@test.com",
- 			password: 'password',
+ 			password: 'genbamaster1',
  			family_name: '管理者',
  			first_name: '管理者',
  			family_name_kana: '管理者',
@@ -19,7 +19,7 @@ User.create(email: "admin.test@test.com",
 
 11.times do |n|
 User.create!(email: "test#{n + 1}@test.com",
- 			password: 'password',
+ 			password: 'genbamaster2',
  			family_name: '田中',
  			first_name: "太郎#{n + 1}",
  			family_name_kana: 'タナカ',
