@@ -23,14 +23,13 @@
 	    		<tr class="active">
 		    		<th style="width:20%">機械・機材名</th>
 		    		<th style="width:20%">現在地</th>
-		    		<th style="width:10%">状態</th>
-		    		<th style="width:20%">移動先選択</th>
-		    		<th style="width:20%">状態選択</th>
-		    		<th style="width:10%">　</th>
+		    		<th style="width:15">状態</th>
+		    		<th style="width:45%">移動先・状態選択</th>h>
 		  		</tr>
 	    	</thead>
 
 	  		<% @machines.each do |machine| %>
+
 	    	<tbody>
 				<tr>
 		    		<td><%= machine.name %></td>
@@ -42,12 +41,9 @@
 						<% end %>
 					</td>
 					<td><%= form_for machine, url: users_machine_path(machine) do |f| %>
-						<%= f.collection_select(:construction_site_id, ConstructionSite.all, :id, :name) %></td>
-					<td>
+						<%= f.collection_select(:construction_site_id, ConstructionSite.all, :id, :name) %>
 						<%= f.select :need_repair, {可動可: 0, 要修理: 1}, class: "form-control" %>
-					</td>
-					<td><%= f.submit '更新',class: 'btn btn-primary' %><% end %></td>
-
+						<%= f.submit '更新',class: 'btn btn-primary' %><% end %></td>
 				</tr>
 			</tbody>
 			<% end %>
