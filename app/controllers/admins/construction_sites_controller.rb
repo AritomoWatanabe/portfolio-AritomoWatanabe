@@ -2,7 +2,7 @@ class Admins::ConstructionSitesController < ApplicationController
  before_action :authenticate_admin!
 
 	def index
-		@construction_sites = ConstructionSite.page(params[:page]).per(10).search(params[:search]).reverse_order
+		@construction_sites = ConstructionSite.page(params[:page]).per(10).search(params[:search])
 	end
 
 	def new
