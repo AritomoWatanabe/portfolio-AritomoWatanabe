@@ -26,6 +26,11 @@
                 <td><%= @reservation.start_time.strftime("%Y-%m-%d %H:%M") %> 〜 <%= @reservation.finish_at.strftime("%Y-%m-%d %H:%M") %></td>
        	      </tr>
 
+              <tr>
+                <th>作業内容</th>
+                <td><%= @reservation.content %></td>
+              </tr>
+
             </tbody>
           </table>
 
