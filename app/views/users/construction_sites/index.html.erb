@@ -9,52 +9,65 @@
 
     		<div class="title">現場一覧</div>
 
-    		<div class="searsh">
-				<%= form_tag(users_construction_sites_path,:method => 'get') do %>
-				<label>絞り込み検索</label>
-  				<%= text_field_tag :search, params[:search] %>
-  				<%= submit_tag '検索', :name => nil %>
-  				<% end %>
-			</div>
-
-		<table class="table table-hover">
-
-	    	<thead class = "thead-light">
-	    		<tr class="active">
-		    		<th>現場名</th>
-		    		<th>現場住所</th>
-		    		<th>元請</th>
-		    		<th>職長</th>
-		    		<th>現在の工程</th>
-		    		<th></th>
-		    		<th></th>
-		  		</tr>
-	    	</thead>
-
-	  		<% @construction_sites.each do |construction_site| %>
-	    	<tbody>
-				<tr>
-		    		<td><%= construction_site.name %></td>
-					<td><%= construction_site.address %></td>
-					<td><% if construction_site.prime_contractor != "弊社" %>
-						<%= construction_site.prime_contractor + "様" %>
-						<% else %>
-						<%= construction_site.prime_contractor %>
-						<% end %>
-					</td>
-					<td><%= construction_site.foremen %></td>
-					<td><%= construction_site.process %></td>
-					<td><%= link_to "詳細",users_construction_site_path(construction_site.id), class: 'btn btn-primary' %></td>
-					<td><%= link_to "現場日報",calendar_users_daily_report_path(construction_site.id), class: 'btn btn-primary' %></td>
-				</tr>
-			</tbody>
-			<% end %>
-		</table>
+    			<div class="searsh">
+					<%= form_tag(users_construction_sites_path,:method => 'get') do %>
+					<label>絞り込み検索</label>
+  					<%= text_field_tag :search, params[:search] %>
+  					<%= submit_tag '検索', :name => nil %>
+  					<% end %>
+				</div>
 
 		</div>
 
-		<div class = "paginate"><%= paginate @construction_sites %></div>
 
-	</div>
+		<div class="col-xs-11">
+
+			<div style="overflow-x:auto;">
+
+				<table class="table table-hover">
+
+	    			<thead class = "thead-light">
+
+	    				<tr class="active">
+		    				<th>現場名</th>
+		    				<th>現場住所</th>
+		    				<th>元請</th>
+		    				<th>職長</th>
+		    				<th>現在の工程</th>
+		    				<th></th>
+		    				<th></th>
+		  				</tr>
+	    			</thead>
+
+	  				<% @construction_sites.each do |construction_site| %>
+
+	    			<tbody>
+						<tr>
+		    				<td><%= construction_site.name %></td>
+							<td><%= construction_site.address %></td>
+							<td><% if construction_site.prime_contractor != "弊社" %>
+									<%= construction_site.prime_contractor + "様" %>
+								<% else %>
+									<%= construction_site.prime_contractor %>
+								<% end %>
+							</td>
+							<td><%= construction_site.foremen %></td>
+							<td><%= construction_site.process %></td>
+							<td><%= link_to "詳細",users_construction_site_path(construction_site.id), class: 'btn btn-primary' %></td>
+							<td><%= link_to "現場日報",calendar_users_daily_report_path(construction_site.id), class: 'btn btn-primary' %></td>
+						</tr>
+					</tbody>
+
+					<% end %>
+
+				</table>
+
+			</div><!-- overflow-x:auto; -->
+
+		</div><!-- col-xs-11 -->
+
+	</div><!-- row -->
+
+	<div class = "paginate"><%= paginate @construction_sites %></div>
 
 </div>

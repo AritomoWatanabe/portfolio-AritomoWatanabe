@@ -36,7 +36,9 @@
 
         </table>
 
-        <div class = "btn1"><%= f.submit "打刻", class: "btn btn-primary" %>&emsp;<%= link_to "出勤簿", calendar_users_attendance_record_path(current_user.id), class: 'btn btn-primary' %></div><% end %>
+        <div class = "btn1"><%= f.submit "打刻", class: "btn btn-primary" %>&emsp;<%= link_to "出勤簿", calendar_users_attendance_record_path(current_user.id), class: 'btn btn-primary' %></div>
+
+      <% end %>
 
     </div>
 
@@ -55,88 +57,88 @@
 
           <table class="table" id="none-border">
 
-          <tbody>
+            <tbody>
 
-            <tr>
-              <td><%= f.label :日付 %></td>
-        		  <td width="250"><%= raw sprintf(f.date_select(:start_time, start_year: Time.now.year, end_year: (Time.now.year + 10),default: Date.today, date_separator:'%s'),'年','月')+'日' %></td>
-              <td></td>
-            </tr>
+              <tr>
+                <td><%= f.label :日付 %></td>
+        		    <td width="250"><%= raw sprintf(f.date_select(:start_time, start_year: Time.now.year, end_year: (Time.now.year + 10),default: Date.today, date_separator:'%s'),'年','月')+'日' %></td>
+                <td></td>
+              </tr>
 
-            <tr>
-        		  <td><%= f.label :construction_site, "現場名" %></td>
-        		  <td><%= f.collection_select(:construction_site_id, ConstructionSite.all , :id, :name,:prompt => "選択してください") %></td>
-              <td></td>
-              <td></td>
-            </tr>
+              <tr>
+        		    <td><%= f.label :construction_site, "現場名" %></td>
+        		    <td><%= f.collection_select(:construction_site_id, ConstructionSite.all , :id, :name,:prompt => "選択してください") %></td>
+                <td></td>
+                <td></td>
+              </tr>
 
-            <tr>
-        		  <td><%= f.label :作業内容 %></td>
-          		<td><%= f.text_field :content %></td>
-              <td></td>
-              <td></td>
-          	</tr>
+              <tr>
+        		    <td><%= f.label :作業内容 %></td>
+          		  <td><%= f.text_field :content %></td>
+                <td></td>
+                <td></td>
+              </tr>
 
-          	<tr>
-        		  <td><%= f.label :その他 %></td>
-          		<td><%= f.text_field :etcetera %></td>
-              <td></td>
-              <td></td>
-          	</tr>
+              <tr>
+        		    <td><%= f.label :その他 %></td>
+          		  <td><%= f.text_field :etcetera %></td>
+                <td></td>
+                <td></td>
+              </tr>
 
-          	<tr>
-        		  <td><%= f.label :自社作業員名 %></td>
-          		<td><%= f.text_field :company_people %></td>
-              <td></td>
-              <td></td>
-          	</tr>
+              <tr>
+        		    <td><%= f.label :自社作業員名 %></td>
+          		  <td><%= f.text_field :company_people %></td>
+                <td></td>
+                <td></td>
+              </tr>
 
-          	<tr>
-          		<td><%= f.label :手元工（人） %></td>
-          		<td><%= f.select :care_people, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
-              <td><%= f.label :とび工（人） %></td>
-              <td><%= f.select :scaffold_people, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
-          	</tr>
+              <tr>
+          		  <td><%= f.label :手元工（人） %></td>
+          		  <td><%= f.select :care_people, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
+                <td><%= f.label :とび工（人） %></td>
+                <td><%= f.select :scaffold_people, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
+              </tr>
 
-          	<tr>
-          		<td><%= f.label :内装工（人） %></td>
-          		<td><%= f.select :interior_people, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
-              <td><%= f.label :警備員（人） %></td>
-              <td><%= f.select :watchman, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
-          	</tr>
+              <tr>
+          		  <td><%= f.label :内装工（人） %></td>
+          		  <td><%= f.select :interior_people, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
+                <td><%= f.label :警備員（人） %></td>
+                <td><%= f.select :watchman, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
+              </tr>
 
-          	<tr>
-          		<td><%= f.label :ゴミ4t車（台） %></td>
-          		<td><%= f.select :garbage_collection_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
-              <td><%= f.label :ゴミ大型車（台） %></td>
-              <td><%= f.select :big_garbage_collection_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
-          	</tr>
+              <tr>
+          		  <td><%= f.label :ゴミ4t車（台） %></td>
+          		  <td><%= f.select :garbage_collection_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
+                <td><%= f.label :ゴミ大型車（台） %></td>
+                <td><%= f.select :big_garbage_collection_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
+              </tr>
 
-          	<tr>
-          		<td><%= f.label :ガラ8t車（台） %></td>
-          		<td><%= f.select :concrete_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
-              <td><%= f.label :ガラ大型車（台） %></td>
-              <td><%= f.select :big_concrete_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
-          	</tr>
+              <tr>
+          		  <td><%= f.label :ガラ8t車（台） %></td>
+          		  <td><%= f.select :concrete_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
+                <td><%= f.label :ガラ大型車（台） %></td>
+                <td><%= f.select :big_concrete_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
+              </tr>
 
-          	<tr>
-          		<td><%= f.label :埋め戻し残土大型車（台） %></td>
-          		<td><%= f.select :soil_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
-          	</tr>
+              <tr>
+          		  <td><%= f.label :埋め戻し残土大型車（台） %></td>
+          		  <td><%= f.select :soil_car, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]%></td>
+              </tr>
 
-          </tbody>
+            </tbody>
 
           </table>
 
           <div class= "btn1"><%= f.submit "日報作成", class: "btn btn-primary" %></div>
 
-          <% end %>
+        <% end %>
 
+    </div><!-- col-xs-6 -------------------->
 
+  </div><!-- row -------------------->
 
-  </div>
-
-</div>
+</div><!-- container -------------------->
 
 <!-- 日報 -->
 
