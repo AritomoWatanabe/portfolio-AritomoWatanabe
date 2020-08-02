@@ -19,9 +19,25 @@
 
 /* スマフォ */
 @media screen and (max-width:425px) {
-.container {
-	padding-top: 220px;
+
+/* ヘッダー--------------------Start */
+.sitename_user {
+	width: 100%
 }
+h2{
+	font-size: 20px;
+}
+.parent{
+	font-size: 10px;
+}
+/* ヘッダー--------------------End */
+
+/* 現場一覧--------------------Start */
+.container {
+	padding-top: 240px;
+}
+
+
 .btn1 {
 	margin-top: 15px;
 	margin-bottom: 15px;
@@ -29,9 +45,39 @@
 .col-xs-4 {
 	width: 100%;
 }
-.col-xs-11 {
-	width: 100%
+
+
+th {
+	/* 横書きになる */
+	white-space: nowrap;
+	padding: 10px
 }
+td {
+	/* 横書きになる */
+	white-space: nowrap;
+	padding: 10px
+}
+
+/* 現場一覧--------------------End */
+
+/* ユーザー詳細・編集--------------------Start */
+
+.col-xs-7 {
+	width: 100%;
+}
+
+/* ユーザー詳細・編集--------------------End */
+
+/* 打刻・日報--------------------Start */
+
+.col-xs-6 {
+	width: 100%;
+}
+
+/* 打刻・日報--------------------End */
+
+
+
 
 }
 
