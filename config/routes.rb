@@ -47,7 +47,7 @@ Rails.application.routes.draw do
         get :calendar, as: :calendar
       end
     end
-  	resources :daily_reports, only:[:create, :show, :edit, :update] do
+  	resources :daily_reports, only:[:create, :show, :edit, :update, :destroy] do
       member do
         get :calendar, as: :calendar
       end
