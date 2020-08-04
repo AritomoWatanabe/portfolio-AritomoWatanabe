@@ -38,6 +38,16 @@ class Users::DailyReportsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@daily_report = DailyReport.find(params[:id])
+		if @daily_report.destroy
+			flash[:notice] = "日報を削除しました！！"
+			redirect_to calendar_users_daily_report_path(@daily_report.id)
+		else
+			render :show
+		end
+	end
+
 	private
   		def daily_report_params
     		params.require(:daily_report).permit(

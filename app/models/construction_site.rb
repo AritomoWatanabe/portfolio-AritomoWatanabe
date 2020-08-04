@@ -3,8 +3,9 @@ class ConstructionSite < ApplicationRecord
 	has_many :attendance_records
 	has_many :daily_reports
 	has_many :machines
-	has_many :photos
-	has_many :reservations
+  has_many :reservations
+	has_many :photos, dependent: :destroy
+  accepts_attachments_for :photos, attachment: :image
 
   validates :name, presence: true
   validates :address, presence: true

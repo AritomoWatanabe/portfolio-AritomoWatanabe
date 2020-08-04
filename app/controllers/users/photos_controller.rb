@@ -32,9 +32,7 @@ class Users::PhotosController < ApplicationController
 	private
   		def photo_params
     		params.require(:photo).permit(
-    			:construction_site_id,
-    			:image,
-    			:explanation)
+    			:construction_site_id,:image,:explanation)
   		end
 
 

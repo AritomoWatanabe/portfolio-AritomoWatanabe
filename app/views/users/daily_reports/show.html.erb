@@ -107,8 +107,12 @@
         <div class="col-lg-8">
         </div>
 
-        <div class="col-lg-2">
+        <div class="col-lg-1">
           <%= link_to "編集する",edit_users_daily_report_path, class: 'btn btn-primary' %>
+        </div>
+
+        <div class="col-lg-1">
+          <%= link_to "削除する", users_daily_report_path(@daily_report), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
         </div>
 </div>
 
