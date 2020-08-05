@@ -57,6 +57,12 @@
           </li>
 
           <li>
+            <%= link_to users_uploader_index_path, :style=>"color:black;" do %>
+            <i class="fas fa-file-pdf">&ensp;PDF書類</i>
+            <% end %>
+          </li>
+
+          <li>
             <%= link_to destroy_user_session_path, :style=>"color:black;", method: :delete do %>
             <i class="fas fa-sign-out-alt">&ensp;ログアウト</i>
             <% end %>

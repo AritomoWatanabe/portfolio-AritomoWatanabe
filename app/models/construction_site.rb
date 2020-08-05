@@ -4,6 +4,7 @@ class ConstructionSite < ApplicationRecord
 	has_many :daily_reports
 	has_many :machines
   has_many :reservations
+  has_many :upload_files
 	has_many :photos, dependent: :destroy
   accepts_attachments_for :photos, attachment: :image
 

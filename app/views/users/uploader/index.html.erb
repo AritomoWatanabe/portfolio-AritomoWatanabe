@@ -1,0 +1,44 @@
+
+<%= render "shared/user_header" %>
+
+<div class = "container">
+
+	<div class= "row">
+
+    	<div class="col-xs-12">
+
+    		<div class="title">PDFファイル一覧</div>
+
+    		<table class="table table-hover">
+
+	    		<thead>
+	    			<tr class="active">
+	    				<th>共有日</th>
+		    			<th>現場名</th>
+		    			<th>ファイル名</th>
+		    			<th>説明</th>
+		    			<th></th>
+		  			</tr>
+	    		</thead>
+
+      		<% @uploads.each do |upload| %>
+
+          <tbody>
+				    <tr>
+						  <td><%= upload.created_at.strftime('%Y/%m/%d') %></td>
+						  <td><%= upload.construction_site.name %></td>
+						  <td><%= upload.name %></td>
+						  <td><%= upload.explanation %></td>
+						  <td><%= link_to "PDFダウンロード", action: "download", id: upload.id %></td>
+		        </tr>
+				  </tbody>
+
+          <% end %>
+
+        </table>
+
+    	</div>
+
+    </div>
+
+</div>

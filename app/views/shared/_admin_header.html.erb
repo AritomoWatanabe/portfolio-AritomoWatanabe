@@ -55,6 +55,12 @@
           </li>
 
           <li>
+            <%= link_to admins_uploader_index_path, :style=>"color:black;" do %>
+            <i class="fas fa-file-pdf">&ensp;PDF共有</i>
+            <% end %>
+          </li>
+
+          <li>
             <%= link_to destroy_admin_session_path, class: 'up', method: :delete, :style=>"color:black;" do %>
             <i class="fas fa-sign-out-alt">&ensp;ログアウト</i>
             <% end %>

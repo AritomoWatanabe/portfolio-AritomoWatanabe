@@ -1,0 +1,20 @@
+class Admins::UploaderController < ApplicationController
+  def index
+  	@upload = UploadFile.new
+  	@uploads = UploadFile.all.reverse_order
+  end
+
+  def upload
+  	@upload_file = UploadFile.new(params.require(:upload_file).permit(:construction_site_id, :name, :explanation, :file))
+    @upload_file.save
+    redirect_to action: 'index'
+  end
+
+  def download
+    @upload_file = UploadFile.find(params[:id].to_i)
+    filepath = @upload_file.file.current_path
+    stat = File::stat(filepath)
+    send_file(filepath, :filename => @upload_file.file.url.gsub(/.*\//,''), :length => stat.size)
+  end
+
+end
