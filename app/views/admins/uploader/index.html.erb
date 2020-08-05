@@ -1,0 +1,79 @@
+
+<%= render "shared/admin_header" %>
+
+<div class = "container">
+
+	<div class= "row">
+
+  		<div class="col-xs-7">
+
+  			<div class="title">PDFファイル共有</div>
+
+    			<%= form_for @upload, :url => {:action => :upload} do |f| %>
+
+    				<table class="table" id="none-border">
+
+            			<tbody>
+
+              				<tr>
+								<td><%= f.label :construction_site, "現場名" %></td>
+        						<td><%= f.collection_select(:construction_site_id, ConstructionSite.all , :id, :name,:prompt => "選択してください") %></td>
+        					</tr>
+        					<tr>
+      							<td><%= f.label :name, "ファイル名" %></td>
+      							<td><%= f.text_field :name %></td>
+      						</tr>
+      						<tr>
+      							<td><%= f.label :explanation, "説明" %></td>
+      							<td><%= f.text_field :explanation %></td>
+      						</tr>
+      						<tr>
+      							<td><%= f.label :PDF, "PDF" %></td>
+      							<td><%= f.file_field :file %></td>
+      						</tr>
+
+      					</tbody>
+
+      				</table>
+
+          			<div class= "btn1"><%= f.submit "共有",class: 'btn btn-primary' %></div>
+
+    			<% end %>
+
+    	</div><!-- col-xs-7 -->
+
+    	<div class="col-xs-12">
+
+    		<div class="title">PDFファイル一覧</div>
+
+    		<table class="table table-hover">
+
+	    		<thead>
+	    			<tr class="active">
+	    				<th>共有日</th>
+		    			<th>現場名</th>
+		    			<th>ファイル名</th>
+		    			<th>説明</th>
+		    			<th></th>
+		  			</tr>
+	    		</thead>
+
+      			<% @uploads.each do |upload| %>
+      			<tbody>
+					<tr>
+						<td><%= upload.created_at.strftime('%Y/%m/%d') %></td>
+						<td><%= upload.construction_site.name %></td>
+						<td><%= upload.name %></td>
+						<td><%= upload.explanation %></td>
+						<td><%= link_to "PDFダウンロード", action: "download", id: upload.id %></td>
+					</tr>
+				</tbody>
+				<% end %>
+
+			</table>
+
+    	</div><!-- col-xs-12 -->
+
+    </div>
+
+</div>

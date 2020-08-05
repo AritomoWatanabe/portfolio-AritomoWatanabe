@@ -64,6 +64,16 @@ Rails.application.routes.draw do
   	root 'homes#top'
   end
 
+  namespace :users do
+    get 'uploader/index'
+    get 'uploader/download'
+  end
+  namespace :admins do
+    get 'uploader/index'
+    post 'uploader/upload'
+    get 'uploader/download'
+  end
+
 
 
 

@@ -87,3 +87,7 @@ end
 
 gem "refile-s3"
 
+gem 'carrierwave'
+
+
+
