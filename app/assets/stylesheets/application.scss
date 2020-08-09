@@ -17,6 +17,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+/* フレキシブル対応-------------------------------------------------------------Start */
+
 /* スマフォ */
 @media screen and (max-width:425px) {
 
@@ -90,6 +93,8 @@ td {
 @media screen and (max-width:1024px) {
 
 }
+
+/* フレキシブル対応---------------------------------------------------------------End */
 
 .headerbar {
 	width: 100%;
