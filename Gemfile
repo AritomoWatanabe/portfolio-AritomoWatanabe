@@ -85,9 +85,14 @@ group :production do
   gem 'mysql2'
 end
 
+# S3保存用
 gem "refile-s3"
 
+# PDF投稿用
 gem 'carrierwave'
+
+# JSがうまく反応されないため
+gem 'jquery-turbolinks'
 
 
 
