@@ -35,7 +35,6 @@
 		    				<th>職長</th>
 		    				<th>現在の工程</th>
 		    				<th></th>
-		    				<th></th>
 		  				</tr>
 	    			</thead>
 
@@ -43,7 +42,7 @@
 
 	    			<tbody>
 						<tr>
-		    				<td><%= construction_site.name %></td>
+		    				<td><%= link_to construction_site.name,users_construction_site_path(construction_site.id) %></td>
 							<td><%= construction_site.address %></td>
 							<td><% if construction_site.prime_contractor != "弊社" %>
 									<%= construction_site.prime_contractor + "様" %>
@@ -53,7 +52,6 @@
 							</td>
 							<td><%= construction_site.foremen %></td>
 							<td><%= construction_site.process %></td>
-							<td><%= link_to "詳細",users_construction_site_path(construction_site.id), class: 'btn btn-primary' %></td>
 							<td><%= link_to "現場日報",calendar_users_daily_report_path(construction_site.id), class: 'btn btn-primary' %></td>
 						</tr>
 					</tbody>

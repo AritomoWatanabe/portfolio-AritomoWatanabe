@@ -1,6 +1,6 @@
 
-
-$ ("turbolinks:load", function() {
+// リロードしないとJSが読み込まれないため(document).on('turbolinks:load',を追加
+$ (document).on('turbolinks:load', function() {
   var API_KEY = '1bd64e5613c942c6f1f467bffcd83e42'
   var city = 'Tokyo';
   var url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',jp&units=metric&APPID=' + API_KEY;
