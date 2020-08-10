@@ -1,6 +1,6 @@
 
 
-$(function() {
+$ ("turbolinks:load", function() {
   var API_KEY = '1bd64e5613c942c6f1f467bffcd83e42'
   var city = 'Tokyo';
   var url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',jp&units=metric&APPID=' + API_KEY;
@@ -11,10 +11,10 @@ $(function() {
   })
   .done(function(data) {
     var insertHTML = "";
-    var cityName = '<h2>' + data.city.name + '</h2>';
+    var cityName = 'Tokyo';
     $('#city-name').html(cityName);
 
-    for (var i = 0; i <= 8; i = i + 2) {
+    for (var i = 0; i <= 32; i = i + 8) {
       insertHTML += buildHTML(data, i);
     }
     $('#weather').html(insertHTML);
