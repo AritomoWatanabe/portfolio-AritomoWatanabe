@@ -2,7 +2,8 @@
 // リロードしないとJSが読み込まれないため(document).on('turbolinks:load',を追加
 $ (document).on('turbolinks:load', function() {
   var API_KEY = '1bd64e5613c942c6f1f467bffcd83e42'
-  var city = 'Tokyo';
+  // "#{@user.wheather_prefecture}"にしたい
+  var city = "東京都";
   var url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',jp&units=metric&APPID=' + API_KEY;
   $.ajax({
     url: url,
@@ -11,7 +12,7 @@ $ (document).on('turbolinks:load', function() {
   })
   .done(function(data) {
     var insertHTML = "";
-    var cityName = 'Tokyo';
+    var cityName = '<h2>' + data.city.name + '</h2>';
     $('#city-name').html(cityName);
 
     for (var i = 0; i <= 32; i = i + 8) {
@@ -24,7 +25,7 @@ $ (document).on('turbolinks:load', function() {
   });
 });
 
-// 日本語化
+// 以下、日本語化
   function buildHTML(data, i) {
     var Week = new Array('(日)', '(月)', '(火)', '(水)', '(木)', '(金)', '(土)');
     var date = new Date(data.list[i].dt_txt);
