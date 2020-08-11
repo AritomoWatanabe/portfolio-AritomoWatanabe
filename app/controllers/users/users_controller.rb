@@ -31,7 +31,8 @@ class Users::UsersController < ApplicationController
       	:email,
       	:address,
       	:telephone_number,
-      	:is_withdrawal)
+      	:is_withdrawal,
+        :wheather_prefecture)
   end
 
 end
