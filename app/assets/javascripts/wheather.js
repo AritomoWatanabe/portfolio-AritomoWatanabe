@@ -1,29 +1,58 @@
 
 // リロードしないとJSが読み込まれないため(document).on('turbolinks:load',を追加
-$ (document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function() {
+  console.log('ロードのタイミングで起動する')
   var API_KEY = '1bd64e5613c942c6f1f467bffcd83e42'
-  // "#{@user.wheather_prefecture}"にしたい
-  var city = "東京都";
-  var url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',jp&units=metric&APPID=' + API_KEY;
-  $.ajax({
-    url: url,
-    dataType: "json",
-    type: 'GET',
-  })
-  .done(function(data) {
-    var insertHTML = "";
-    var cityName = '<h2>' + data.city.name + '</h2>';
-    $('#city-name').html(cityName);
+    // "#{@user.wheather_prefecture}"にしたい
+    const prefecture = document.getElementById('user_wheather_prefecture').value
+    var url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + prefecture + ',jp&units=metric&APPID=' + API_KEY;
+    $.ajax({
+      url: url,
+      dataType: "json",
+      type: 'GET',
+    })
+    .done(function(data) {
+      var insertHTML = "";
+      var cityName = '<h2>' + data.city.name + '</h2>';
+      $('#city-name').html(cityName);
 
-    for (var i = 0; i <= 32; i = i + 8) {
-      insertHTML += buildHTML(data, i);
-    }
-    $('#weather').html(insertHTML);
-  })
-  .fail(function(data) {
-    console.log("失敗しました");
+      for (var i = 0; i <= 32; i = i + 8) {
+        insertHTML += buildHTML(data, i);
+      }
+      $('#weather').html(insertHTML);
+    })
+    .fail(function(data) {
+      console.log("失敗しました");
+    });
+
+// Javascriptがうまく作動せずjQueryにてスクロールで変更した際に天気予報が起動するように
+  $('#user_wheather_prefecture').change(function(){
+    console.log('スクロールを変更した際に起動する')
+    var API_KEY = '1bd64e5613c942c6f1f467bffcd83e42'
+    // "#{@user.wheather_prefecture}"にしたい
+    const prefecture = document.getElementById('user_wheather_prefecture').value
+    var url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + prefecture + ',jp&units=metric&APPID=' + API_KEY;
+    $.ajax({
+      url: url,
+      dataType: "json",
+      type: 'GET',
+    })
+    .done(function(data) {
+      var insertHTML = "";
+      var cityName = '<h2>' + data.city.name + '</h2>';
+      $('#city-name').html(cityName);
+
+      for (var i = 0; i <= 32; i = i + 8) {
+        insertHTML += buildHTML(data, i);
+      }
+      $('#weather').html(insertHTML);
+    })
+    .fail(function(data) {
+      console.log("失敗しました");
+    });
   });
 });
+
 
 // 以下、日本語化
   function buildHTML(data, i) {
