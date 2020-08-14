@@ -20,11 +20,22 @@
 				<div>
 					<%= link_to admins_attendance_record_path(attendance_record.id) do %>
 					<%= attendance_record.start_time.strftime("%H:%M") %>〜<%= attendance_record.finish_at.strftime("%H:%M") %><br><%= attendance_record.construction_site.name %>
+
+					<% @count == 0 %>
+    				<% if Time.new.month == attendance_record.start_time.month %>
+    				<%= @user.family_name %>
+    				<% end %>
+
 					<% end %>
 				</div>
 			<% end %>
 
 		<% end %>
+
+		<%= @attendance_records.size %>
+
+    	<%= @count %>
+
 
 	</div>
 
