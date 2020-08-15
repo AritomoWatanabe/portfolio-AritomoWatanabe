@@ -12,6 +12,7 @@
 
 	<div class= "row">
 
+		<% @count_thismonth = 0 %>
 
 		<%= month_calendar events: @attendance_records do |date, attendance_records| %>
 			<%= date.day %>
@@ -21,10 +22,12 @@
 					<%= link_to admins_attendance_record_path(attendance_record.id) do %>
 					<%= attendance_record.start_time.strftime("%H:%M") %>〜<%= attendance_record.finish_at.strftime("%H:%M") %><br><%= attendance_record.construction_site.name %>
 
-					<% @count == 0 %>
+
+					<!-- 今月の出勤日数 -->
     				<% if Time.new.month == attendance_record.start_time.month %>
-    				<%= @user.family_name %>
+    				<% @count_thismonth = @count_thismonth + 1 %>
     				<% end %>
+    				<!-- 今月の出勤日数 -->
 
 					<% end %>
 				</div>
@@ -33,9 +36,7 @@
 		<% end %>
 
 		<%= @attendance_records.size %>
-
-    	<%= @count %>
-
+		<div>今月の出勤日数は<%= @count_thismonth %>日間</div>
 
 	</div>
 
