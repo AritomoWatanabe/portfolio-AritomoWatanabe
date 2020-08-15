@@ -59,13 +59,15 @@ class Users::DailyReportsController < ApplicationController
     			:care_people,
     			:scaffold_people,
     			:interior_people,
+    			:welder,
     			:watchman,
     			:garbage_collection_car,
     			:big_garbage_collection_car,
     			:concrete_car,
     			:big_concrete_car,
     			:soil_car,
-    			:start_time)
+    			:start_time,
+    			:etcetera_people)
   		end
 
 

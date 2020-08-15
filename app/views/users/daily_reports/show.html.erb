@@ -28,7 +28,7 @@
             </tr>
 
             <tr>
-              <th>その他</th>
+              <th>連絡事項など</th>
               <td><%= @daily_report.etcetera %></td>
             </tr>
 
@@ -65,6 +65,11 @@
           </tr>
 
           <tr>
+            <th>ガス工</th>
+            <td><%= @daily_report.welder %>人</td>
+          </tr>
+
+          <tr>
             <th>警備員</th>
             <td><%= @daily_report.watchman %>人</td>
           </tr>
@@ -92,6 +97,11 @@
           <tr>
             <th>埋め戻し残土大型車</th>
             <td><%= @daily_report.soil_car %>台</td>
+          </tr>
+
+          <tr>
+            <th>その他（人工・車）</th>
+            <td><%= @daily_report.etcetera_people %></td>
           </tr>
 
           </tbody>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_10_060931) do
+ActiveRecord::Schema.define(version: 2020_08_15_065809) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -56,20 +56,22 @@ ActiveRecord::Schema.define(version: 2020_08_10_060931) do
   create_table "daily_reports", force: :cascade do |t|
     t.integer "construction_site_id", null: false
     t.string "content", null: false
-    t.string "etcetera"
-    t.string "company_people", null: false
-    t.integer "care_people"
-    t.integer "scaffold_people"
-    t.integer "interior_people"
-    t.integer "watchman"
-    t.integer "garbage_collection_car"
-    t.integer "big_garbage_collection_car"
-    t.integer "concrete_car"
-    t.integer "big_concrete_car"
-    t.integer "soil_car"
+    t.string "etcetera" #連絡事項など
+    t.string "company_people", null: false #自社人工
+    t.integer "care_people" #手元
+    t.integer "scaffold_people" #鳶
+    t.integer "interior_people" #内装
+    t.integer "watchman" #警備員
+    t.integer "garbage_collection_car" #ゴミ４t車
+    t.integer "big_garbage_collection_car" #ゴミ大型車
+    t.integer "concrete_car" #ガラ８t車
+    t.integer "big_concrete_car" #ガラ大型車
+    t.integer "soil_car" #埋め戻し大型車
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "start_time"
+    t.integer "welder" #ガス工
+    t.string "etcetera_people" #その他人工
   end
 
   create_table "machines", force: :cascade do |t|
@@ -122,6 +124,7 @@ ActiveRecord::Schema.define(version: 2020_08_10_060931) do
     t.boolean "is_withdrawal", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "weather_prefecture", default: 13
     t.string "wheather_prefecture", default: "東京都"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
