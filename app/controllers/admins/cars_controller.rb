@@ -1,9 +1,10 @@
 class Admins::CarsController < ApplicationController
  before_action :authenticate_admin!
+ GET_LIMIT = 10
 
 	def index
 		@car = Car.new
-		@cars = Car.all.page(params[:page]).per(10).order(created_at: :desc)
+		@cars = Car.all.page(params[:page]).per(GET_LIMIT).order(created_at: :desc)
 	end
 
 	def create

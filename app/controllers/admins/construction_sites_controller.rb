@@ -1,8 +1,9 @@
 class Admins::ConstructionSitesController < ApplicationController
  before_action :authenticate_admin!
+ GET_LIMIT = 10
 
 	def index
-		@construction_sites = ConstructionSite.page(params[:page]).per(10).search(params[:search]).order(created_at: :desc)
+		@construction_sites = ConstructionSite.page(params[:page]).per(GET_LIMIT).search(params[:search]).order(created_at: :desc)
 	end
 
 	def new
