@@ -1,9 +1,8 @@
 
 // リロードしないとJSが読み込まれないため(document).on('turbolinks:load',を追加
+// ロードのタイミングで起動する
 $(document).on('turbolinks:load', function() {
-  console.log('ロードのタイミングで起動する')
   var API_KEY = '1bd64e5613c942c6f1f467bffcd83e42'
-    // "#{@user.wheather_prefecture}"にしたい
     const prefecture = document.getElementById('user_wheather_prefecture').value
     var url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + prefecture + ',jp&units=metric&APPID=' + API_KEY;
     $.ajax({
@@ -26,10 +25,9 @@ $(document).on('turbolinks:load', function() {
     });
 
 // Javascriptがうまく作動せずjQueryにてスクロールで変更した際に天気予報が起動するように
+// スクロールを変更した際に起動する
   $('#user_wheather_prefecture').change(function(){
-    console.log('スクロールを変更した際に起動する')
     var API_KEY = '1bd64e5613c942c6f1f467bffcd83e42'
-    // "#{@user.wheather_prefecture}"にしたい
     const prefecture = document.getElementById('user_wheather_prefecture').value
     var url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + prefecture + ',jp&units=metric&APPID=' + API_KEY;
     $.ajax({

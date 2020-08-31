@@ -1,8 +1,9 @@
 class Admins::UsersController < ApplicationController
  before_action :authenticate_admin!
+ GET_LIMIT = 10
 
 	def index
-    	@users = User.all.page(params[:page]).per(10)
+    	@users = User.all.page(params[:page]).per(GET_LIMIT)
 	end
 
 	def show
