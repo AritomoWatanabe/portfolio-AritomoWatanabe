@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'users/homes#top'
+  get 'about' => 'abouts#about'
 
 #初期のdeviseの設定だとadminとuserで見分けがつけにくい為下記記述でわかりやすくする
   devise_for :admins, controllers: {
