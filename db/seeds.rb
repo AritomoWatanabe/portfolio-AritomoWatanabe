@@ -8,15 +8,6 @@
 
 Admin.create(email: 'admin@admin', password: 'genbamaster')
 
-User.create(email: "admin.test@test.com",
- 			password: 'genbamaster1',
- 			family_name: '管理者',
- 			first_name: '管理者',
- 			family_name_kana: '管理者',
- 			first_name_kana: '管理者',
- 			address: "東京",
- 			telephone_number: '00000000000')
-
 11.times do |n|
 User.create!(email: "test#{n + 1}@test.com",
  			password: 'genbamaster2',
