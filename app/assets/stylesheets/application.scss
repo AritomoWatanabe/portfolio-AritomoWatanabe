@@ -111,6 +111,10 @@ td {
 	color: white;
 	background-color: #006699;
 }
+.sitename_about{
+	color: white;
+	background-color: #7d7d7d;
+}
 .parent {
     display: flex;
     justify-content: space-between;
@@ -151,11 +155,44 @@ td {
 	text-decoration:underline;
 }
 .about-title{
-	font-size: 30px;
+	position:relative;
+	padding:20px 10px 20px 50px;
+	font-size:35px;
+	border:1px solid #325A8C;
 }
-.about-btn2{
-	text-align: right;
+.about-title::after{
+	content: "こんな時期こそITを";
+	position: absolute;
+	top: -12px;
+	left: 10px;
+	background: #fff;
+	font-size: 25px;
+	color: #325A8C;
+	padding: 0 10px;
 }
+.about-subtitle{
+	font-size: 25px;
+	padding-top: 15px;
+	text-decoration: underline;
+	font-weight: bold;
+}
+.about-subtitle2{
+	font-size: 20px;
+	padding-top: 10px;
+	font-weight: bold;
+}
+
+.about-text{
+	padding-top: 5px;
+	font-size: 15px;
+}
+
+.about-image{
+	border: 3px solid;
+	width: 850px;
+	margin-bottom: 20px;
+}
+
 
 /* about関連-------------------------------------------------------------End */
 
