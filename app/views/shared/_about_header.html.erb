@@ -1,0 +1,79 @@
+<script src="https://kit.fontawesome.com/ed00617fa7.js" crossorigin="anonymous"></script>
+
+<div class="navbar navbar-fixed-top" role="navigation">
+
+  <div class="sitename_about">
+    <div class="container-fluid">
+      <div class="parent">
+        <h2>GENBA-MASTER</h2>
+            <div class="welcome">
+              <%= link_to root_path, :style=>"color:white;" do %>
+                <i>ログイン画面へ戻る</i>
+              <% end %>
+            </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+
+      <ul class="nav na-tabs nav-justified">
+
+        <% if user_signed_in? %>
+
+          <li>
+            <%= link_to users_user_path(current_user.id), :style=>"color:black;" do %>
+              <i class="fas fa-user">&ensp;マイページ・天気</i>
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to users_root_path, :style=>"color:black;" do %>
+              <i class="fas fa-clock">&ensp;打刻・日報</i>
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to users_construction_sites_path, :style=>"color:black;" do %>
+              <i class="fas fa-hard-hat">&ensp;現場一覧</i>
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to users_machines_path, :style=>"color:black;" do %>
+              <i class="fas fa-tools">&ensp;機械・機材一覧</i>
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to users_reservations_path, :style=>"color:black;" do %>
+              <i class="fas fa-truck-loading">&ensp;配車予約カレンダー</i>
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to users_uploader_index_path, :style=>"color:black;" do %>
+              <i class="fas fa-file-pdf">&ensp;PDF書類</i>
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to destroy_user_session_path, :style=>"color:black;", method: :delete do %>
+              <i class="fas fa-sign-out-alt">&ensp;ログアウト</i>
+            <% end %>
+          </li>
+
+        <% end %>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>
+
+<footer class="navbar navbar-fixed-bottom", style="background-color: #7d7d7d;"></footer>
+

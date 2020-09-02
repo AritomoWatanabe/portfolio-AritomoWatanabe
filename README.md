@@ -32,4 +32,3 @@
 ### チャレンジ要素一覧（クラウド教養コース）
 
 https://docs.google.com/spreadsheets/d/1-IWHVzUeAyHqWFqDxG_cMrKbYkZUT8E63fyHzA7lr1w/edit?usp=sharing
-

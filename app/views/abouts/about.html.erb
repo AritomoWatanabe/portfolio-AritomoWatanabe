@@ -1,61 +1,84 @@
 
-<%= render "shared/user_header" %>
+<%= render "shared/about_header" %>
 
 <div class = "container">
 
 	<div class= "row">
 
-			<div class = "about-title">システムの概要・使い方</div>
-			<div class="about-btn2"><%= link_to "ログイン画面へ戻る", root_path %></div>
+			<div class = "about-title">建設業界の中小企業向け 現場管理システム</div>
 
 
-			<p>ログインの際は<br>
-			管理者側はメールアドレス　<strong>admin@admin</strong> パスワード <strong>genbamaster</strong> で<br>
+			<div class = "about-subtitle">サイトの概要について</div>
+
+			<div class = "about-text">
+			<p>&emsp;大手ゼネコンは、各工事現場ごとの記録・保存や、各現場間の連絡の取り方などがしっかりとしているイメージだが、<br>
+				少し規模が小さい会社になると、現場ごとの記録が少なかったり、紙での記録が多いイメージがあります。<br>
+				そのような建設業界の中小企業向けに、自分の前職での経験や知識を使い、「あったら便利だな」と思える機能を考え作成しました。</p>
+			</div>
+
+			<div class = "about-subtitle">ログインの際は</div>
+
+			<div class = "about-text">
+			<p>管理者側はメールアドレス <strong>admin@admin</strong> パスワード <strong>genbamaster</strong> で<br>
 			従業員側はメールアドレス <strong>test1@test.com</strong> パスワード <strong>genbamaster2</strong> でログインできます</p>
-
-			<p>ログイン写真</p>
-
-			<h4>管理者側</h4>
+			</div>
 
 
-			<h4>従業員側</h4>
+			<div class = "about-subtitle">管理者側</div>
+
+
+			<div class = "about-subtitle">従業員側</div><br>
 
 			<p>ログイン後は打刻と日報の画面へ進みます。</p>
-			<p>ここでは
-				①従業員一人一人が、その日に出勤した現場と時間を打刻することができ、また自分の出勤簿を一覧で確認することができます。
-				②各現場の職長は各々が担当する現場の日報を作成することができます。</p>
-			<img src="/assets/user_mypage.png", :size =>'320x480'>
 
-			<p>マイページ画面</p>
-			<p>マイページ画面では会社が従業員のアカウントを作成した際の情報が確認・編集と
-				全国の都道県ごとの地域の一週間の天気予報も確認することができます。</p>
-			<p>画像</p>
+			<div class = "about-subtitle2">・打刻と日報</div>
+				<div class = "about-text">
+					<p>①従業員一人一人が、その日に出勤した現場と時間の打刻、自分の出勤簿を一覧で確認。<br>
+						②各現場の職長は各々が担当する現場の日報を作成。&emsp;をすることができます。</p>
+				</div>
 
-			<p>現場一覧画面</p>
-			<p>現場一覧画面では各工事現場の現場名、住所、元請け、職長、現在の工程を一覧で確認することができます。</p>
-			<p>画像</p>
+			<div class = "about-subtitle2">・マイページ画面</div>
+				<div class = "about-text">
+					<p>会社が従業員のアカウントを作成した際の情報が確認・編集と
+						全国の都道県ごとの地域の一週間の天気予報も確認することができます。</p>
+					<%= image_tag "user_mypage.png", class:"about-image" %>
+				</div>
 
-			<p>現場詳細</p>
-			<p>現場一覧から移動した現場一覧では一覧で確認した内容＋工期と現場ごとの注意事項の確認、
-				現場の一覧表示がされています。
-				画像をクリックすると画像詳細、「写真を追加」ボタンからは写真投稿画面へと移行します。</p>
-			<p>画像</p>
+			<div class = "about-subtitle2">・現場一覧画面</div>
+				<div class = "about-text">
+					<p>各工事現場の現場名、住所、元請け、職長、現在の工程を一覧で確認することができます。</p>
+					<%= image_tag "user_const.png", class:"about-image" %>
+				</div>
 
-			<p>機械・機材一覧画面</p>
-			<p>機械・機材一覧画面では、会社が保有する機械と機材の現在地・すぐ使用できるかの確認ができます。
-				従業員が機械・機材を移動or持ち出しをした際にはここでどの現場に移動したかを明確にすることで
-				どこの現場に何があるのか、次の現場ですぐ使えることができるのかを確認することができます</p>
-			<p>画像</p>
+			<div class = "about-subtitle2">・現場詳細</div>
+				<div class = "about-text">
+					<p>現場詳細では一覧で確認した内容に加えて工期と現場ごとの注意事項の確認、
+						現場の一覧表示がされています。<br>
+						画像をクリックすると画像詳細、「写真を追加」ボタンからは写真投稿画面へと移行します。</p>
+					<%= image_tag "user_const2.png", class:"about-image" %>
+				</div>
 
-			<p>配車予約カレンダー</p>
-			<p>配車予約カレンダーでは、会社の車の今後予定を確認・予約することができます。
-				配車予約では現場名と車種（走行可の車のみ選択可）、日付時間、内容を入力します。</p>
-			<p>画像</p>
+			<div class = "about-subtitle2">・機械 機材一覧画面</div>
+				<div class = "about-text">
+					<p>機械・機材一覧画面では、会社が保有する機械と機材の現在地・すぐ使用できるかの確認ができます。<br>
+						従業員が機械・機材を移動or持ち出しをした際にはここでどの現場に移動したかを明確にすることで
+						どこの現場に何があるのか、<br>次の現場ですぐ使えることができるのかを確認することができます</p>
+						<%= image_tag "user_machine.png", class:"about-image" %>
+				</div>
 
-			<p>PDF書類画面</p>
-			<p>PDF書類画面では、会社側が従業員に共有したい図面や工程表などをPDFにて
-				ダウンロードすることができます。</p>
-			<p>画像</p>
+			<div class = "about-subtitle2">・配車予約カレンダー</div>
+				<div class = "about-text">
+					<p>配車予約カレンダーでは、会社の車の今後予定を確認・予約することができます。
+						配車予約では現場名と車種（走行可の車のみ選択可）、日付時間、内容を入力します。</p>
+						<%= image_tag "user_car.png", class:"about-image" %>
+				</div>
+
+			<div class = "about-subtitle2">・PDF書類画面</div>
+				<div class = "about-text">
+					<p>PDF書類画面では、会社側が従業員に共有したい図面や工程表などをPDFにて
+						ダウンロードすることができます。</p>
+						<%= image_tag "user_pdf.png", class:"about-image" %>
+				</div>
 
 
 
