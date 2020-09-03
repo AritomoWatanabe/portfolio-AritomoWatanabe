@@ -192,9 +192,23 @@ td {
 	width: 850px;
 	margin-bottom: 20px;
 }
+.about-image-half{
+	border: 3px solid;
+	width: 49%;
+	margin-bottom: 20px;
+	margin-right: 10px;
+	float: left;
+}
 
 
 /* about関連-------------------------------------------------------------End */
+
+.what-day{
+	font-size: 15px;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
 
 /* 打刻・日報のバリデーション代わり */
 .notification1{

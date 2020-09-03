@@ -1,43 +1,44 @@
 
 <%= render "shared/admin_header" %>
 
-<div class = "container">
+  <div class = "container">
 
-  <% if flash[:alert] %>
-    <div class="alert alert-danger" role="alert"><strong><%= alert %></strong></div>
-  <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger" role="alert"><strong><%= alert %></strong></div>
+    <% end %>
 
-  <div class = "row">
+      <div class = "row">
 
-    <div class="title">ログイン</div>
+        <div class="title">ログイン</div>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <table class="table" id="none-border">
+            <table class="table" id="none-border">
 
-    <tbody>
+              <tbody>
 
-      <tr>
-        <td><%= f.label :メールアドレス %></td>
-        <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-      </tr>
+                <tr>
+                  <td><%= f.label :メールアドレス %></td>
+                  <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+                </tr>
 
-      <tr>
-        <td><%= f.label :パスワード %></td>
-        <td><%= f.password_field :password, autocomplete: "current-password" %></td>
-      </tr>
+                <tr>
+                  <td><%= f.label :パスワード %></td>
+                  <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+                </tr>
 
-    </tbody>
+              </tbody>
 
-  </table>
+            </table>
 
-  <div class="btn1"><%= f.submit "ログイン", class: "btn btn-success btn-lg" %></div>
+              <div class="btn1"><%= f.submit "ログイン", class: "btn btn-success btn-lg" %></div>
 
-  <% end %>
+          <% end %>
 
+            <div class="about-btn"><%= link_to "サイトの概要・使い方はこちら", about_path %></div>
+
+      </div>
 
   </div>
-
-</div>
 
 
